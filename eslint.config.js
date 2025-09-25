@@ -1,8 +1,6 @@
-// @ts-check
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
-const prettier = require("eslint-config-prettier");
 
 module.exports = tseslint.config(
   {
@@ -12,14 +10,43 @@ module.exports = tseslint.config(
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
-      prettier,
     ],
-    plugins: {
-      prettier: require("eslint-plugin-prettier"),
-    },
     processor: angular.processInlineTemplates,
     rules: {
-      "prettier/prettier": "error",
+      // Variables and functions must have camelCase
+      "camelcase": ["error", { properties: "always" }],
+
+      // Class, Interface, Enum must have PascalCase
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "class",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "interface",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "enum",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "variable",
+          modifiers: ["const"],
+          format: ["UPPER_CASE"],
+        },
+        {
+          selector: "variable",
+          format: ["camelCase"],
+        },
+        {
+          selector: "function",
+          format: ["camelCase"],
+        }
+      ],
+
+      // Angular selector rules
       "@angular-eslint/directive-selector": [
         "error",
         {
