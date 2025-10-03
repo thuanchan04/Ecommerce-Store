@@ -10,10 +10,11 @@ import { SearchFieldComponent } from "./shared/components/input_components/searc
 import { Button, ButtonVariant } from './shared/components/buttons/buttons';
 import { Tabs } from "./shared/components/tabs/tabs";
 import { Cards } from "./shared/components/cards/cards";
+import { Checkboxes } from "./shared/components/checkboxes/checkboxes";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs, Cards],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs, Cards, Checkboxes],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
