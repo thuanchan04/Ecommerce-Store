@@ -1,0 +1,18 @@
+<div class="bg-black text-white font-bold p-2">Tabs</div>
+<div class="border p-4 bg-gray-100">
+  <div class="flex flex-col gap-2">
+    @for (option of storageOptions; track option) {
+      <div
+        (mousedown)="select(option)"
+        class="w-24 py-2 rounded border text-center cursor-pointer"
+        [class.bg-black]="selected === option"
+        [class.text-white]="selected === option"
+        [class.border-black]="selected === option"
+        [class.text-gray-500]="selected !== option"
+        [class.opacity-40]="selected !== option"
+      >
+        {{ option }}
+      </div>
+    }
+  </div>
+</div>

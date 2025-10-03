@@ -8,10 +8,11 @@ import { FieldWithoutLabelComponent } from "./shared/components/input_components
 import { FieldWithLabelComponent } from "./shared/components/input_components/field-with-label.component";
 import { SearchFieldComponent } from "./shared/components/input_components/search-field.component";
 import { Button, ButtonVariant } from './shared/components/buttons/buttons';
+import { Tabs } from "./shared/components/tabs/tabs";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
