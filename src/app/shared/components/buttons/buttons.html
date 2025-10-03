@@ -1,0 +1,88 @@
+<button
+  type="button"
+  class="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition"
+  [class.bg-blue-600]="variant === ButtonVariant.PRIMARY"
+  [class.text-white]="variant === ButtonVariant.PRIMARY"
+  [class.hover\:bg-blue-700]="variant === ButtonVariant.PRIMARY"
+
+  [class.bg-gray-200]="variant === ButtonVariant.SECONDARY"
+  [class.text-gray-900]="variant === ButtonVariant.SECONDARY"
+  [class.hover\:bg-gray-300]="variant === ButtonVariant.SECONDARY"
+
+  [class.border]="variant === ButtonVariant.OUTLINE"
+  [class.border-blue-600]="variant === ButtonVariant.OUTLINE"
+  [class.text-blue-600]="variant === ButtonVariant.OUTLINE"
+  [class.bg-white]="variant === ButtonVariant.OUTLINE"
+  [class.hover\:bg-blue-50]="variant === ButtonVariant.OUTLINE"
+
+  [class.bg-red-600]="variant === ButtonVariant.DANGER"
+  [class.text-white]="variant === ButtonVariant.DANGER"
+  [class.hover\:bg-red-700]="variant === ButtonVariant.DANGER"
+>
+  @if (iconLeft) {
+    <app-icon [icon]="iconLeft"></app-icon>
+  }
+
+  <span>{{ label }}</span>
+
+  @if (iconRight) {
+    <app-icon [icon]="iconRight"></app-icon>
+  }
+</button>
+
+<div class="p-6 space-y-6 bg-gray-200 border border-dashed border-purple-400 rounded-lg">
+  <!-- Row 1: White Border + White Text -->
+  <div class="flex gap-4">
+    <button class="px-4 py-2 rounded-md border border-white text-white bg-transparent hover:bg-white/10">
+      Label
+    </button>
+    <button class="px-4 py-2 rounded-md border border-white text-white bg-transparent hover:bg-white/10 flex items-center gap-2">
+      Label
+      <app-icon [icon]="Icons.CHEVRON_DOWN" class="w-4 h-4"></app-icon>
+    </button>
+    <button class="px-4 py-2 rounded-md border border-white text-white bg-transparent hover:bg-white/10">
+      Label
+    </button>
+    <button class="px-4 py-2 rounded-md border border-white text-white bg-transparent hover:bg-white/10 flex items-center gap-2">
+      Label
+      <app-icon [icon]="Icons.CHEVRON_DOWN" class="w-4 h-4"></app-icon>
+    </button>
+  </div>
+
+  <!-- Row 2: Black Background + White Text -->
+  <div class="flex gap-4">
+    <button class="px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800">
+      Label
+    </button>
+    <button class="px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 flex items-center gap-2">
+      Label
+      <app-icon [icon]="Icons.CHEVRON_DOWN" class="w-4 h-4"></app-icon>
+    </button>
+    <button class="px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800">
+      Label
+    </button>
+    <button class="px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 flex items-center gap-2">
+      Label
+      <app-icon [icon]="Icons.CHEVRON_DOWN" class="w-4 h-4"></app-icon>
+    </button>
+  </div>
+
+  <!-- Row 3: Black Border + Black Text -->
+  <div class="flex gap-4">
+    <button class="px-4 py-2 rounded-md border border-black text-black bg-transparent hover:bg-gray-100">
+      Label
+    </button>
+    <button class="px-4 py-2 rounded-md border border-black text-black bg-transparent hover:bg-gray-100 flex items-center gap-2">
+      Label
+      <app-icon [icon]="Icons.CHEVRON_DOWN" class="w-4 h-4"></app-icon>
+    </button>
+    <button class="px-4 py-2 rounded-md border border-black text-black bg-transparent hover:bg-gray-100">
+      Label
+    </button>
+    <button class="px-4 py-2 rounded-md border border-black text-black bg-transparent hover:bg-gray-100 flex items-center gap-2">
+      Label
+      <app-icon [icon]="Icons.CHEVRON_DOWN" class="w-4 h-4"></app-icon>
+    </button>
+  </div>
+</div>
+
