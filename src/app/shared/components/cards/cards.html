@@ -1,0 +1,25 @@
+<div class="bg-black text-white font-bold p-2">Cards</div>
+<div class="border p-4 bg-gray-100 flex flex-col gap-6">
+
+  <!-- Category Card -->
+  <div>
+    <div class="font-medium">Category Card</div>
+    <div class="w-32 h-32 bg-white rounded-lg shadow flex flex-col justify-center items-center gap-2 cursor-pointer">
+      <app-icon [icon]="Icons.PHONES_BIG"></app-icon>
+      <span class="font-medium">Phones</span>
+    </div>
+  </div>
+
+  <!-- Detail Card -->
+  <div>
+    <div class="font-medium">Detail card</div>
+    <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center gap-2 cursor-pointer">
+      <app-icon [icon]="Icons.SCREEN_SIZE"></app-icon>
+      <div class="text-center">
+        <div class="text-sm text-gray-500">Screen size</div>
+        <div class="font-semibold">6.7"</div>
+      </div>
+    </div>
+  </div>
+
+</div>

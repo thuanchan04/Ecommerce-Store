@@ -9,10 +9,11 @@ import { FieldWithLabelComponent } from "./shared/components/input_components/fi
 import { SearchFieldComponent } from "./shared/components/input_components/search-field.component";
 import { Button, ButtonVariant } from './shared/components/buttons/buttons';
 import { Tabs } from "./shared/components/tabs/tabs";
+import { Cards } from "./shared/components/cards/cards";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs, Cards],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
