@@ -3,8 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-logo',
   imports: [],
-  templateUrl: './logo.html',
-  styleUrl: './logo.css'
+  templateUrl: './logo.html'
 })
 export class Logo {
   @Input() logoType = LogoTypes.DARK;

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { Icons } from '../icon/icon.model';
+import { Icon } from '../icon/icon';
 
 @Component({
   selector: 'app-checkboxes',
-  imports: [],
-  templateUrl: './checkboxes.html',
-  styleUrl: './checkboxes.css'
+  imports: [Icon],
+  templateUrl: './checkboxes.html'
 })
 export class Checkboxes {
   radioValue = '1';
@@ -34,4 +35,6 @@ export class Checkboxes {
       this.setRadio(value);
     }
   }
+
+  Icons = Icons;
 }

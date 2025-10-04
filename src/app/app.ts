@@ -15,8 +15,7 @@ import { Checkboxes } from "./shared/components/checkboxes/checkboxes";
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs, Cards, Checkboxes],
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  templateUrl: './app.html'
 })
 export class App {
   protected readonly title = signal('e-store');

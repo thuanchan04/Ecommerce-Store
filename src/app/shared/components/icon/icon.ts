@@ -4,8 +4,7 @@ import {Icons } from './icon.model';
 @Component({
   selector: 'app-icon',
   imports: [],
-  templateUrl: './icon.html',
-  styleUrl: './icon.css'
+  templateUrl: './icon.html'
 })
 export class Icon {
   @Input() icon!: Icons;

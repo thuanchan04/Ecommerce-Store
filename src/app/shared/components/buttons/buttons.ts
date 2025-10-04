@@ -7,8 +7,7 @@ import { Icon } from "../icon/icon";
   selector: 'app-buttons',
   standalone: true,
   imports: [Icon],
-  templateUrl: './buttons.html',
-  styleUrl: './buttons.css'
+  templateUrl: './buttons.html'
 })
 export class Button {
   @Input() variant: ButtonVariant = ButtonVariant.PRIMARY;

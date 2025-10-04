@@ -1,101 +1,100 @@
 <div class="bg-black text-white font-bold p-2">Checkboxes</div>
 <div class="border p-4 bg-gray-100 flex flex-col gap-6">
 
-  <!-- Radio -->
+  <!-- ================= RADIO ================= -->
   <div>
-    <div class="font-medium">Radio Button</div>
+    <div class="font-medium mb-2">Select One</div>
     <div class="flex flex-col gap-2">
-      <!-- Radio 1 -->
-      <div
-        role="radio"
-        tabindex="0"
-        [attr.aria-checked]="radioValue === '1'"
-        (mousedown)="setRadio('1')"
-        (keydown)="onKeyRadio($event, '1')"
-        class="w-6 h-6 rounded-full border flex items-center justify-center cursor-pointer"
-        [class.border-black]="radioValue === '1'"
-        [class.border-gray-400]="radioValue !== '1'"
-      >
-        @if (radioValue === '1') {
-          <div class="w-3 h-3 rounded-full bg-black"></div>
-        }
+      <!-- Option 1 -->
+      <div class="flex items-center gap-2">
+        <div 
+          class="cursor-pointer"
+          (mousedown)="setRadio('1')"
+        >
+          @if (radioValue === '1') {
+            <app-icon [icon]="Icons.RADIO_TRUE"></app-icon>
+          } @else {
+            <app-icon [icon]="Icons.RADIO_FALSE"></app-icon>
+          }
+        </div>
       </div>
 
-      <!-- Radio 2 -->
-      <div
-        role="radio"
-        tabindex="0"
-        [attr.aria-checked]="radioValue === '2'"
-        (mousedown)="setRadio('2')"
-        (keydown)="onKeyRadio($event, '2')"
-        class="w-6 h-6 rounded-full border flex items-center justify-center cursor-pointer"
-        [class.border-black]="radioValue === '2'"
-        [class.border-gray-400]="radioValue !== '2'"
-      >
-        @if (radioValue === '2') {
-          <div class="w-3 h-3 rounded-full bg-black"></div>
-        }
+      <!-- Option 2 -->
+      <div class="flex items-center gap-2">
+        <div 
+          class="cursor-pointer"
+          (mousedown)="setRadio('2')"
+        >
+          @if (radioValue === '2') {
+            <app-icon [icon]="Icons.RADIO_TRUE"></app-icon>
+          } @else {
+            <app-icon [icon]="Icons.RADIO_FALSE"></app-icon>
+          }
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Checkbox -->
+  <!-- ================= CHECKBOX ================= -->
   <div>
-    <div class="font-medium">Checkbox</div>
+    <div class="font-medium mb-2">Multiple Select</div>
     <div class="flex flex-col gap-2">
       <!-- Checkbox 1 -->
-      <div
-        role="checkbox"
-        tabindex="0"
-        [attr.aria-checked]="check1"
-        (mousedown)="toggle('check1')"
-        (keydown)="onKey($event, 'check1')"
-        class="w-5 h-5 border cursor-pointer flex items-center justify-center"
-        [class.bg-black]="check1"
-      >
-        @if (check1) {
-          <span class="text-white text-xs">✔</span>
-        }
+      <div class="flex items-center gap-2">
+        <div 
+          class="cursor-pointer"
+          (mousedown)="toggle('check1')"
+        >
+          @if (check1) {
+            <app-icon [icon]="Icons.CHECK_BOX_TRUE"></app-icon>
+          } @else {
+            <app-icon [icon]="Icons.CHECK_BOX_FALSE"></app-icon>
+          }
+        </div>
       </div>
 
       <!-- Checkbox 2 -->
-      <div
-        role="checkbox"
-        tabindex="0"
-        [attr.aria-checked]="check2"
-        (mousedown)="toggle('check2')"
-        (keydown)="onKey($event, 'check2')"
-        class="w-5 h-5 border cursor-pointer flex items-center justify-center"
-        [class.bg-black]="check2"
-      >
-        @if (check2) {
-          <span class="text-white text-xs">✔</span>
-        }
+      <div class="flex items-center gap-2">
+        <div 
+          class="cursor-pointer"
+          (mousedown)="toggle('check2')"
+        >
+          @if (check2) {
+            <app-icon [icon]="Icons.CHECK_BOX_TRUE"></app-icon>
+          } @else {
+            <app-icon [icon]="Icons.CHECK_BOX_FALSE"></app-icon>
+          }
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Checkbox + Text -->
+  <!-- ================= CHECKBOX + TEXT ================= -->
   <div>
-    <div class="font-medium">Checkbox+Text</div>
-    <div
-      role="checkbox"
-      tabindex="0"
-      [attr.aria-checked]="apple"
-      (mousedown)="toggle('apple')"
-      (keydown)="onKey($event, 'apple')"
-      class="flex items-center gap-2 cursor-pointer"
-    >
+    <div class="font-medium mb-2">Checkbox + Extra</div>
+    <div class="flex items-center gap-2">
+      <!-- Icon -->
       <div
-        class="w-5 h-5 border flex items-center justify-center"
-        [class.bg-black]="apple"
+        class="cursor-pointer"
+        (mousedown)="toggle('apple')"
       >
         @if (apple) {
-          <span class="text-white text-xs">✔</span>
+          <app-icon [icon]="Icons.CHECK_BOX_TRUE"></app-icon>
+        } @else {
+          <app-icon [icon]="Icons.CHECK_BOX_FALSE"></app-icon>
         }
       </div>
-      <span class="font-semibold">Apple</span>
-      <span class="text-gray-400">110</span>
+
+      <!-- Text -->
+      <span
+        class="font-semibold cursor-pointer select-none"
+        (mousedown)="toggle('apple')"
+      >
+        Apple
+      </span>
+
+      <!-- Number (chỉ hiển thị, không toggle) -->
+      <span class="text-gray-400 select-none">110</span>
     </div>
   </div>
 </div>

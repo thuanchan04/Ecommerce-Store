@@ -5,8 +5,7 @@ import { Icon } from "../icon/icon";
 @Component({
   selector: 'app-cards',
   imports: [Icon],
-  templateUrl: './cards.html',
-  styleUrl: './cards.css'
+  templateUrl: './cards.html'
 })
 export class Cards {
   Icons = Icons;

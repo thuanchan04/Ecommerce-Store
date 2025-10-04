@@ -30,7 +30,11 @@ export enum Icons {
   SHIPPING = '24/shipping',
   SMART_WATCHES = '24/smartWatches',
   TO_EDIT = '24/toEdit',
-  VIEW = '24/view',
+  VIEW = '24/view',  
+  CHECK_BOX_FALSE = '24/checkBoxFalse',
+  CHECK_BOX_TRUE = '24/checkBoxTrue',
+  RADIO_FALSE = '24/radioFalse',
+  RADIO_TRUE = '24/radioTrue',
 
   // 32px
   ARROW_BIG = '32/arrow',
@@ -54,4 +58,9 @@ export enum Icons {
   DELIVERY = '56/delivery',
   GUARANTEED = '56/guaranteed',
   STOCK = '56/stock',
+
+  //other
+  LOGO_DARK = 'other/logoDark',
+  LOGO_lIGHT = 'other/logoLight',
+
 }
