@@ -1,3 +1,4 @@
+<!-- ================================TEST ICONS================================ -->
 <!-- <h1 class="text-3xl font-bold underline">Hello world!</h1>
 <app-logo [logoType]="LogoTypes.DARK"></app-logo>
 
@@ -7,7 +8,8 @@
 
 <app-icon [icon]="Icons.GAMING_BIG"></app-icon> -->
 
-<!-- Input -->
+
+<!-- ================================TEST INPUT================================ -->
 <!-- <div class="p-40">
   <h2 class="mb-4">Input Examples</h2>
   <app-field-without-label [placeholder]="'CVV'"></app-field-without-label>
@@ -16,13 +18,33 @@
   <app-dropdown></app-dropdown>
 </div> -->
 
+
 <!-- <app-buttons></app-buttons> -->
 
-<!-- <app-tabs></app-tabs> -->
+
+<!-- ================================TEST TABS================================ -->
+<h2 class="font-bold text-lg mb-2">Chọn dung lượng</h2>
+<app-tabs
+  [(selectedTabId)]="selectedMemoryId"
+  [tabs]="memoryTabs"
+></app-tabs>
+
+<h2 class="font-bold text-lg mt-6 mb-2">Chọn màu sắc</h2>
+<app-tabs
+  [(selectedTabId)]="selectedColorId"
+  [tabs]="colorTabs"
+></app-tabs>
+
+<p class="mt-6">Bạn đã chọn: {{ selectedMemoryId }} / {{ selectedColorId }}</p>
+
+
+
 
 <!-- <app-cards></app-cards> -->
 
-<!-- =========== Test checkbox ================-->
+
+
+<!--================================TEST CHECKBOX================================-->
 <!-- <div class="bg-black text-white font-bold p-2">Checkboxes Demo</div>
 <div class="border p-4 bg-gray-100 flex flex-col gap-4">
   
@@ -35,10 +57,11 @@
 
 </div> -->
 
-<!-- ================== TEST RADIOBUTTON ===================== -->
-<br>
+<!-- ================================TEST RADIOBUTTON================================ -->
+<!-- <br>
 <app-radio-button [(model)]="radioValue" value="1" [text]="'Option 1'"></app-radio-button>
 <br>
 <app-radio-button [(model)]="radioValue" value="2" [text]="'Option 2'"></app-radio-button>
 <br>
-<app-radio-button [(model)]="radioValue" value="3"></app-radio-button> <!-- chỉ icon -->
+<app-radio-button [(model)]="radioValue" value="3"></app-radio-button>  -->
+<!-- chỉ icon -->

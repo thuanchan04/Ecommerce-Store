@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tabs',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tabs.html'
 })
-export class Tabs {
-  storageOptions = ['64GB', '128GB', '256GB'];
-  selected = '256GB';
+export class TabsComponent {
+  @Input() tabs: { id: string; label: string; available: boolean }[] = [];
+  @Input() selectedTabId: string | null = null;
+  @Output() selectedTabIdChange = new EventEmitter<string>();
 
-  select(option: string) {
-    this.selected = option;
+  selectTab(tab: { id: string; label: string; available: boolean }) {
+    if (!tab.available) return; // disabled -> không chọn
+    this.selectedTabId = tab.id;
+    this.selectedTabIdChange.emit(tab.id);
   }
 }
