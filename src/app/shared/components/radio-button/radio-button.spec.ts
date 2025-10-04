@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Checkboxes } from './checkboxes';
+import { RadioButton } from './radio-button';
 
-describe('Checkboxes', () => {
-  let component: Checkboxes;
-  let fixture: ComponentFixture<Checkboxes>;
+describe('RadioButton', () => {
+  let component: RadioButton;
+  let fixture: ComponentFixture<RadioButton>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Checkboxes]
+      imports: [RadioButton]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Checkboxes);
+    fixture = TestBed.createComponent(RadioButton);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

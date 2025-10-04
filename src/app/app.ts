@@ -10,11 +10,12 @@ import { SearchFieldComponent } from "./shared/components/input_components/searc
 import { Button, ButtonVariant } from './shared/components/buttons/buttons';
 import { Tabs } from "./shared/components/tabs/tabs";
 import { Cards } from "./shared/components/cards/cards";
-import { Checkboxes } from "./shared/components/checkboxes/checkboxes";
+import { Checkbox } from "./shared/components/checkbox/checkbox";
+import { RadioButton } from "./shared/components/radio-button/radio-button";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs, Cards, Checkboxes],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Button, Tabs, Cards, Checkbox, RadioButton],
   templateUrl: './app.html'
 })
 export class App {
@@ -22,4 +23,10 @@ export class App {
   LogoTypes = LogoTypes;
   ButtonVariant = ButtonVariant;
   Icons = Icons;
+
+  check1 = false;
+  check2 = true;
+  apple = false;
+
+  radioValue = '2';
 }

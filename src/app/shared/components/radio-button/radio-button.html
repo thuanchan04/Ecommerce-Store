@@ -1,0 +1,14 @@
+<div class="flex items-center gap-2">
+  <div class="cursor-pointer" (mousedown)="select()">
+    <app-icon [icon]="isChecked ? Icons.RADIO_TRUE : Icons.RADIO_FALSE"></app-icon>
+  </div>
+
+  @if (text) {
+    <span
+      class="font-semibold cursor-pointer select-none"
+      (mousedown)="select()"
+    >
+      {{ text }}
+    </span>
+  }
+</div>

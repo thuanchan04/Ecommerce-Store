@@ -1,0 +1,16 @@
+<div class="flex items-center gap-2">
+  <!-- Icon -->
+  <div class="cursor-pointer" (mousedown)="toggle()">
+    <app-icon [icon]="checked ? Icons.CHECK_BOX_TRUE : Icons.CHECK_BOX_FALSE"></app-icon>
+  </div>
+
+  <!-- Text (nếu có) -->
+  @if (text) {
+    <span
+      class="font-semibold cursor-pointer select-none"
+      (mousedown)="toggle()"
+    >
+      {{ text }}
+    </span>
+  }
+</div>
