@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Icon } from "../icon/icon";
-import { Icons } from '..//icon/icon.model';
+import { Icons } from '../icon/icon.model';
 
 
 @Component({

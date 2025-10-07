@@ -3,7 +3,7 @@ import { Icons } from '../icon/icon.model';
 import { Icon } from '../icon/icon';
 
 type ButtonVariant = 'white' | 'fill' | 'black';
-type ButtonSize = 'M' | 'S';
+type ButtonSize = 'M' | 'S' | 'I';
 
 @Component({
   selector: 'app-button',
@@ -16,6 +16,8 @@ export class Button {
   @Input() size: ButtonSize = 'M';
   @Input() icon = false;
   @Input() disabled = false;
+  @Input() customSizeClass?: string;
+
 
   Icons = Icons;
 
@@ -35,6 +37,7 @@ export class Button {
     const SIZES = {
       M: this.icon ? 'w-[182px] h-[56px]' : 'w-[150px] h-[56px]',
       S: this.icon ? 'w-[178px] h-[48px]' : 'w-[162px] h-[48px]',
+      I: this.customSizeClass || '',
     };
 
     return `${BASE} ${SIZES[this.size]} ${VARIANTS[this.variant]}`;
