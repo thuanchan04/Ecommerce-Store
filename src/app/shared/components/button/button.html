@@ -1,0 +1,14 @@
+<button
+  type="button"
+  class="{{ getButtonClass() }}"
+  [disabled]="disabled"
+  [attr.aria-label]="label"
+>
+  <span>{{ label }}</span>
+  @if (icon && (variant === 'white' || variant === 'fill')) {
+    <app-icon [icon]="Icons.CHEVRON_DOWN"></app-icon>  
+  }
+  @else if (icon && variant === 'black') {
+    <app-icon [icon]="Icons.ARROW_DOWN"></app-icon>
+  }
+</button>

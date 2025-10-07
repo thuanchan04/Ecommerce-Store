@@ -19,11 +19,34 @@
 </div> -->
 
 
-<!-- <app-buttons></app-buttons> -->
+<!-- ================================TEST BUTTON================================ -->
+<div class="flex flex-col gap-6 p-8 bg-gray-200 min-h-screen">
+  <div class="flex gap-4">
+    <app-button label="White M" variant="white" size="M"></app-button>
+    <app-button label="White M" variant="white" size="M" [icon]="true"></app-button>
+    <app-button label="White S" variant="white" size="S"></app-button>
+    <app-button label="White S" variant="white" size="S" [icon]="true"></app-button>
+  </div>
+
+  <div class="flex gap-4">
+    <app-button label="Fill M" variant="fill" size="M"></app-button>
+    <app-button label="Fill M" variant="fill" size="M" [icon]="true"></app-button>
+    <app-button label="Fill S" variant="fill" size="S"></app-button>
+    <app-button label="Fill S" variant="fill" size="S" [icon]="true"></app-button>
+  </div>
+
+  <div class="flex gap-4">
+    <app-button label="Black M" variant="black" size="M"></app-button>
+    <app-button label="Black M" variant="black" size="M" [icon]="true"></app-button>
+    <app-button label="Black S" variant="black" size="S"></app-button>
+    <app-button label="Black S" variant="black" size="S" [icon]="true"></app-button>
+  </div>
+
+</div>
 
 
 <!-- ================================TEST TABS================================ -->
-<h2 class="font-bold text-lg mb-2">Chọn dung lượng</h2>
+<!-- <h2 class="font-bold text-lg mb-2">Chọn dung lượng</h2>
 <app-tabs
   [(selectedTabId)]="selectedMemoryId"
   [tabs]="memoryTabs"
@@ -35,7 +58,7 @@
   [tabs]="colorTabs"
 ></app-tabs>
 
-<p class="mt-6">Bạn đã chọn: {{ selectedMemoryId }} / {{ selectedColorId }}</p>
+<p class="mt-6">Bạn đã chọn: {{ selectedMemoryId }} / {{ selectedColorId }}</p> -->
 
 
 
