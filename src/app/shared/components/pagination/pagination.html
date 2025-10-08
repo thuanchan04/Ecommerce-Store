@@ -1,0 +1,51 @@
+<!-- Khối Page Number -->
+<div class="flex flex-col gap-2 p-6">
+  <b class="text-[18px] font-semibold">Page Number</b>
+
+  <div class="flex flex-col gap-2 border border-dashed border-purple-400 rounded-lg p-4 w-fit">
+    <!-- Trạng thái chưa chọn -->
+    <button class="{{ getPageNumberClass(false) }}">1</button>
+
+    <!-- Trạng thái đang chọn -->
+    <button class="{{ getPageNumberClass(true) }}">1</button>
+  </div>
+</div>
+
+<!-- Khối Pagination chính -->
+<div class="flex flex-col gap-2 p-6">
+  <b class="text-[18px] font-semibold">Pagination</b>
+
+  <div class="flex items-center gap-2 border border-dashed border-blue-400 rounded-lg p-4 w-fit">
+    <!-- Nút Prev -->
+    <button
+      (click)="prevPage()"
+      [disabled]="currentPage === 1"
+      class="inline-flex items-center justify-center w-[56px] h-[56px] bg-white text-black hover:bg-gray-100 disabled:opacity-50"
+    >
+      <app-icon [icon]="Icons.ARROWA" class="h-5 w-5"></app-icon>
+    </button>
+
+    <!-- Các số trang -->
+    @for (page of getPages(); track page) {
+      @if (page === '...') {
+        <span class="w-[16px] h-[16px] px-2 text-lg text-gray-400">…</span>
+      } @else {
+        <button
+          (click)="goToPage(page)"
+          class="{{ getButtonClass(page === currentPage) }}"
+        >
+          {{ page }}
+        </button>
+      }
+    }
+
+    <!-- Nút Next -->
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      class="inline-flex items-center justify-center w-[56px] h-[56px] bg-white text-black hover:bg-gray-100 disabled:opacity-50"
+    >
+      <app-icon [icon]="Icons.ARROWB" class="h-5 w-5"></app-icon>
+    </button>
+  </div>
+</div>

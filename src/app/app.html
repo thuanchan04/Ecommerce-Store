@@ -60,11 +60,7 @@
 <p class="mt-6">Bạn đã chọn: {{ selectedMemoryId }} / {{ selectedColorId }}</p> -->
 
 
-
-
-<app-cards></app-cards>
-
-
+<!-- <app-cards></app-cards> -->
 
 <!--================================TEST CHECKBOX================================-->
 <!-- <div class="bg-black text-white font-bold p-2">Checkboxes Demo</div>
@@ -87,3 +83,10 @@
 <br>
 <app-radio-button [(model)]="radioValue" value="3"></app-radio-button>  -->
 <!-- chỉ icon -->
+ 
+
+
+<!-- ================================TEST PAGINATION================================ -->
+ <div class="flex flex-col gap-6 p-10 bg-gray-50 min-h-screen">
+  <app-pagination [totalPages]="10" [currentPage]="1"></app-pagination>
+</div>

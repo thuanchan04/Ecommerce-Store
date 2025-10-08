@@ -13,10 +13,11 @@ import { Checkbox } from "./shared/components/checkbox/checkbox";
 import { RadioButton } from "./shared/components/radio-button/radio-button";
 import { Button } from "./shared/components/button/button";
 import { CommonModule } from '@angular/common';
+import { Pagination } from "./shared/components/pagination/pagination";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination],
   templateUrl: './app.html'
 })
 export class App {
