@@ -9,10 +9,12 @@
       <input
         id="priceFrom"
         type="number"
-        class="w-full h-[56px] rounded-md border border-gray-300 px-4 text-lg"
+        class="w-full h-[56px] rounded-md border border-gray-300 px-4 text-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
         [value]="minValue()"
         (input)="handleMinInput($event)"
-      />
+        (keydown)="blockNonNumeric($event)"
+/>
+
     </div>
 
     <!-- To -->
@@ -21,9 +23,10 @@
       <input
         id="priceTo"
         type="number"
-        class="w-full h-[56px] rounded-md border border-gray-300 px-4 text-lg"
+        class="w-full h-[56px] rounded-md border border-gray-300 px-4 text-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
         [value]="maxValue()"
         (input)="handleMaxInput($event)"
+        (keydown)="blockNonNumeric($event)"
       />
     </div>
   </div>
@@ -38,14 +41,14 @@
 
     <!-- Handle min -->
     <div
-      class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer z-10"
+      class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer"
       [style.left.%]="minPercent()"
       (pointerdown)="startDrag('min')"
     ></div>
 
     <!-- Handle max -->
     <div
-      class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer z-20"
+      class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer"
       [style.left.%]="maxPercent() - 0.5"
       (pointerdown)="startDrag('max')"
     ></div>

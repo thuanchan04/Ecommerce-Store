@@ -1,4 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, Input } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,12 +6,11 @@ import { Component, signal, computed } from '@angular/core';
   templateUrl: './slider.html'
 })
 export class Slider {
-  minValue = signal(100);
-  maxValue = signal(900);
+  @Input() min = 0;
+  @Input() max = 1000;
 
-  min = 0;
-  max = 1000;
-  step = 10;
+  minValue = signal(this.min);
+  maxValue = signal(this.max);
 
   // Tính phần trăm để hiển thị
   minPercent = computed(() => (this.minValue() / this.max) * 100);
@@ -66,6 +65,12 @@ export class Slider {
       this.maxValue.set(this.minValue());
     } else {
       this.maxValue.set(this.max);
+    }
+  }
+
+  blockNonNumeric(event: KeyboardEvent) {
+    if (['e', 'E', '+', '-', '.'].includes(event.key)) {
+      event.preventDefault();
     }
   }
 }
