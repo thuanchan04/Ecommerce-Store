@@ -14,12 +14,11 @@ import { RadioButton } from "./shared/components/radio-button/radio-button";
 import { Button } from "./shared/components/button/button";
 import { CommonModule } from '@angular/common';
 import { Pagination } from "./shared/components/pagination/pagination";
-import { FilterSectiom } from './shared/components/filter-sectiom/filter-sectiom';
 import { Slider } from "./shared/components/slider/slider";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, FilterSectiom, Slider],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider],
   templateUrl: './app.html'
 })
 export class App {

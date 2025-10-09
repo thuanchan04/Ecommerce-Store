@@ -1,4 +1,4 @@
-import { Component, signal, computed, effect } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -20,7 +20,7 @@ export class Slider {
   // === Xử lý kéo slider (giữ nguyên logic hiện tại) ===
   activeHandle: 'min' | 'max' | null = null;
 
-  startDrag(handle: 'min' | 'max', event: PointerEvent) {
+  startDrag(handle: 'min' | 'max') {
     this.activeHandle = handle;
     const move = (e: PointerEvent) => this.onDrag(e);
     const stop = () => {

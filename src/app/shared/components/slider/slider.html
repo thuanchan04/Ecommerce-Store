@@ -40,14 +40,14 @@
     <div
       class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer z-10"
       [style.left.%]="minPercent()"
-      (pointerdown)="startDrag('min', $event)"
+      (pointerdown)="startDrag('min')"
     ></div>
 
     <!-- Handle max -->
     <div
       class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer z-20"
       [style.left.%]="maxPercent() - 0.5"
-      (pointerdown)="startDrag('max', $event)"
+      (pointerdown)="startDrag('max')"
     ></div>
   </div>
 
