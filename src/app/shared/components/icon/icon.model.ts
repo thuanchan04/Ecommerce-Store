@@ -10,6 +10,7 @@ export enum Icons {
   ARROWA = '24/arrowA',
   ARROWB = '24/arrowB',
   ARROW_DOWN = '24/arrowDown',
+  ARROW_UP = '24/arrowUp',
   BATTERY = '24/batteryCapacity',
   CAMERAS = '24/cameras',
   CHEVRON_DOWN = '24/chevronDown',

@@ -1,0 +1,19 @@
+@for (category of Object.keys(categories); track category) {
+  <div class="border border-gray-300 rounded cursor-pointer">
+    <div class="flex items-center justify-between p-4" (mousedown)="showAndHideItems(category)">
+      <p class="font-medium">{{ category }}</p>
+      @if (isHidden[category] !== null && isHidden[category] === false) {
+        <app-icon [icon]="Icons.ARROW_UP"></app-icon> 
+      } 
+      @else {
+      <app-icon [icon]="Icons.ARROW_DOWN"></app-icon>
+      }
+    </div>
+
+    @if (isHidden[category] !== null && isHidden[category] === false) {
+      @for (item of categories[category]; track item) {
+        <div class="pl-8 py-2 text-gray-600 hover:text-gray-600 hover:font-bold">{{ item }}</div>
+      }
+    }
+  </div>
+}
