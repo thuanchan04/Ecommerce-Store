@@ -33,13 +33,14 @@ module.exports = tseslint.config(
         },
         {
           selector: "variable",
-          modifiers: ["const"],
+          modifiers: ["const", "global"],
           format: ["UPPER_CASE"],
         },
         {
           selector: "variable",
-          format: ["camelCase"],
+          format: ["camelCase", "UPPER_CASE"],
         },
+
         {
           selector: "function",
           format: ["camelCase"],

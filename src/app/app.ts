@@ -14,10 +14,12 @@ import { RadioButton } from "./shared/components/radio-button/radio-button";
 import { Button } from "./shared/components/button/button";
 import { CommonModule } from '@angular/common';
 import { Pagination } from "./shared/components/pagination/pagination";
+import { FilterSectiom } from './shared/components/filter-sectiom/filter-sectiom';
+import { Slider } from "./shared/components/slider/slider";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, FilterSectiom, Slider],
   templateUrl: './app.html'
 })
 export class App {
@@ -51,4 +53,13 @@ export class App {
     { variant: 'fill' as const, label: 'Fill' },
     { variant: 'black' as const, label: 'Black' },
   ] as const;
+
+    // Hàm nhận dữ liệu khi filter thay đổi
+  onFiltersChanged(filters: { from: number; to: number; selectedOptions: Record<string, string[]> }) {
+    console.log('Dữ liệu filter nhận được:', filters);
+
+    // 👇 Bạn có thể xử lý dữ liệu tại đây
+    // ví dụ: gọi API, lọc danh sách sản phẩm, ...
+    // this.productService.filterProducts(filters);
+  }
 }

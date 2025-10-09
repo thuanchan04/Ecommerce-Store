@@ -1,0 +1,54 @@
+<div class="w-full max-w-md mx-auto mt-10 select-none">
+  <h2 class="text-lg font-semibold mb-4">Slider chuyên nghiệp (2 đầu không vượt nhau)</h2>
+
+  <!-- Input From / To -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-4 w-full max-w-[420px]">
+    <!-- From -->
+    <div class="flex flex-col flex-1">
+      <label for="priceFrom" class="text-gray-500 mb-2">From</label>
+      <input
+        id="priceFrom"
+        type="number"
+        class="w-full h-[56px] rounded-md border border-gray-300 px-4 text-lg"
+        [value]="minValue()"
+        (input)="handleMinInput($event)"
+      />
+    </div>
+
+    <!-- To -->
+    <div class="flex flex-col flex-1">
+      <label for="priceTo" class="text-gray-500 mb-2">To</label>
+      <input
+        id="priceTo"
+        type="number"
+        class="w-full h-[56px] rounded-md border border-gray-300 px-4 text-lg"
+        [value]="maxValue()"
+        (input)="handleMaxInput($event)"
+      />
+    </div>
+  </div>
+
+  <!-- Slider -->
+  <div #track class="relative h-2 bg-gray-200 rounded">
+    <div
+      class="absolute h-2 bg-black rounded"
+      [style.left.%]="minPercent()"
+      [style.width.%]="maxPercent() - minPercent()"
+    ></div>
+
+    <!-- Handle min -->
+    <div
+      class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer z-10"
+      [style.left.%]="minPercent()"
+      (pointerdown)="startDrag('min', $event)"
+    ></div>
+
+    <!-- Handle max -->
+    <div
+      class="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-black cursor-pointer z-20"
+      [style.left.%]="maxPercent() - 0.5"
+      (pointerdown)="startDrag('max', $event)"
+    ></div>
+  </div>
+
+</div>
