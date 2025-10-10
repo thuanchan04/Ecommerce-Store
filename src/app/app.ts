@@ -17,10 +17,11 @@ import { Slider } from "./shared/components/slider/slider";
 import { CategoryFilter } from "./shared/components/category-filter/category-filter";
 import { CategoryCard } from "./shared/components/category-card/category-card";
 import { DetailCard } from "./shared/components/detail-card/detail-card";
+import { DropDown } from "./shared/components/drop-down/drop-down";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard, DropDown],
   templateUrl: './app.html'
 })
 export class App {

@@ -1,0 +1,41 @@
+<div class="inline-block">
+  <p class="font-semibold mb-1">{{ title }}</p>
+
+  <div class="relative w-56">
+    <!-- Nút chính -->
+    <button
+      type="button"
+      (click)="toggle()"
+      class="w-full flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 bg-white"
+    >
+      <span>{{ selectedOption }}</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 text-gray-500 transition-transform duration-200"
+        [class.rotate-180]="isOpen"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+    <!-- Danh sách xổ xuống -->
+    @if (isOpen) {
+      <div
+        class="absolute mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-md z-10"
+      >
+        @for (option of options; track option) {
+          <div
+            class="px-3 py-2 cursor-pointer hover:bg-gray-100"
+            [class.bg-blue-50]="option === selectedOption"
+            (mousedown)="selectOption(option)"
+          >
+            {{ option }}
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
