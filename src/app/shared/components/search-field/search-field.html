@@ -1,6 +1,4 @@
-<span>Search Field</span>
-<div class="relative w-[210px] h-[100px] mt-2 ">
-  <!-- Icon search -->
+<!-- Icon search -->
   <div class="absolute pl-1 flex items-center pointer-events-none">
     <app-icon [icon]="Icons.SEARCH" class="text-gray-400 m-2"></app-icon>
   </div>
@@ -8,7 +6,6 @@
   <!-- Input -->
   <input
     type="text"
-    placeholder="Search"
+    placeholder={{placeholder}}
     class="w-full pl-12 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
   />
-</div>

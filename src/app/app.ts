@@ -6,7 +6,6 @@ import { Icons } from './shared/components/icon/icon.model';
 import { DropdownComponent } from "./shared/components/input_components/dropdown.component";
 import { FieldWithoutLabelComponent } from "./shared/components/input_components/field-without-label.component";
 import { FieldWithLabelComponent } from "./shared/components/input_components/field-with-label.component";
-import { SearchFieldComponent } from "./shared/components/input_components/search-field.component";
 import { TabsComponent } from "./shared/components/tabs/tabs";
 import { Checkbox } from "./shared/components/checkbox/checkbox";
 import { RadioButton } from "./shared/components/radio-button/radio-button";
@@ -18,10 +17,11 @@ import { CategoryFilter } from "./shared/components/category-filter/category-fil
 import { CategoryCard } from "./shared/components/category-card/category-card";
 import { DetailCard } from "./shared/components/detail-card/detail-card";
 import { DropDown } from "./shared/components/drop-down/drop-down";
+import { SearchField } from "./shared/components/search-field/search-field";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard, DropDown],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard, DropDown, SearchField],
   templateUrl: './app.html'
 })
 export class App {
