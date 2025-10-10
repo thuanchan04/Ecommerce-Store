@@ -8,7 +8,6 @@ import { FieldWithoutLabelComponent } from "./shared/components/input_components
 import { FieldWithLabelComponent } from "./shared/components/input_components/field-with-label.component";
 import { SearchFieldComponent } from "./shared/components/input_components/search-field.component";
 import { TabsComponent } from "./shared/components/tabs/tabs";
-import { Cards } from "./shared/components/cards/cards";
 import { Checkbox } from "./shared/components/checkbox/checkbox";
 import { RadioButton } from "./shared/components/radio-button/radio-button";
 import { Button } from "./shared/components/button/button";
@@ -21,7 +20,7 @@ import { DetailCard } from "./shared/components/detail-card/detail-card";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard],
   templateUrl: './app.html'
 })
 export class App {
