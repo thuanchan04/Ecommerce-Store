@@ -17,10 +17,11 @@ import { Pagination } from "./shared/components/pagination/pagination";
 import { Slider } from "./shared/components/slider/slider";
 import { CategoryFilter } from "./shared/components/category-filter/category-filter";
 import { CategoryCard } from "./shared/components/category-card/category-card";
+import { DetailCard } from "./shared/components/detail-card/detail-card";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard, DetailCard],
   templateUrl: './app.html'
 })
 export class App {
