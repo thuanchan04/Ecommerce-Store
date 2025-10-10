@@ -16,10 +16,11 @@ import { CommonModule } from '@angular/common';
 import { Pagination } from "./shared/components/pagination/pagination";
 import { Slider } from "./shared/components/slider/slider";
 import { CategoryFilter } from "./shared/components/category-filter/category-filter";
+import { CategoryCard } from "./shared/components/category-card/category-card";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter],
+  imports: [RouterOutlet, Logo, Icon, DropdownComponent, FieldWithoutLabelComponent, FieldWithLabelComponent, SearchFieldComponent, Cards, Checkbox, RadioButton, TabsComponent, Button, CommonModule, Pagination, Slider, CategoryFilter, CategoryCard],
   templateUrl: './app.html'
 })
 export class App {
