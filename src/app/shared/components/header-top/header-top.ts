@@ -14,7 +14,7 @@ export class HeaderTop {
   LogoTypes = LogoTypes;
   Icons = Icons;
 
-  columnRatios = [2, 2, 8, 2, 2, 2, 2, 2, 2, 2, 2 ];
+  columnRatios = [2, 2.5, 8, 2, 2, 3, 2, 1, 1, 1, 2];
 
   gridTemplateColumns = this.columnRatios.map(r => `${r}fr`).join(' ');
 

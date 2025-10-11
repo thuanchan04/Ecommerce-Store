@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Icons } from '../icon/icon.model';
 import { Icon } from "../icon/icon";
 
@@ -7,8 +7,6 @@ import { Icon } from "../icon/icon";
   imports: [Icon],
   templateUrl: './search-field.html'
 })
-export class SearchField {
-  @Input() placeholder!: string;
-  
+export class SearchField {  
   Icons = Icons;
 }
