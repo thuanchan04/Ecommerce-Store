@@ -1,0 +1,17 @@
+<div 
+  class="py-5 grid items-center w-full border border-gray-300 shadow-sm"
+  [style.gridTemplateColumns]="gridTemplateColumns"
+>
+  <div></div>
+  <app-logo [logoType]="LogoTypes.DARK"></app-logo>
+  <app-search-field></app-search-field>
+  <div class="text-center font-medium cursor-pointer">Home</div>
+  <div class="text-center font-medium cursor-pointer">About</div>
+  <div class="text-center font-medium cursor-pointer">Contact Us</div>
+  <div class="text-center font-medium cursor-pointer">Blog</div>
+  <app-icon [icon]="Icons.FAVORITES"></app-icon>
+  <app-icon [icon]="Icons.CART"></app-icon>
+  <app-icon [icon]="Icons.USER"></app-icon>
+  <div></div>
+</div>
+

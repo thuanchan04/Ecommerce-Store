@@ -5,9 +5,10 @@ import { Icon } from './shared/components/icon/icon';
 import { Icons } from './shared/components/icon/icon.model';
 import { InputField } from './shared/components/input-field/input-field';
 import { InputFieldType } from './shared/components/input-field/input-field';
+import { HeaderTop } from "./shared/components/header-top/header-top";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, InputField],
+  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop],
   templateUrl: './app.html'
 })
 export class App {
