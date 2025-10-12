@@ -1,17 +1,42 @@
 <div 
-  class="py-5 grid items-center w-full border border-gray-300 shadow-sm"
+  class="hidden md:grid items-center w-full border border-gray-300 shadow-sm"
   [style.gridTemplateColumns]="gridTemplateColumns"
 >
   <div></div>
   <app-logo [logoType]="LogoTypes.DARK"></app-logo>
   <app-search-field></app-search-field>
+
   <div class="text-center font-medium cursor-pointer">Home</div>
   <div class="text-center font-medium cursor-pointer">About</div>
   <div class="text-center font-medium cursor-pointer">Contact Us</div>
   <div class="text-center font-medium cursor-pointer">Blog</div>
+
   <app-icon [icon]="Icons.FAVORITES"></app-icon>
   <app-icon [icon]="Icons.CART"></app-icon>
   <app-icon [icon]="Icons.USER"></app-icon>
   <div></div>
 </div>
+
+
+  <div class="flex md:hidden items-center justify-between w-full h-[56px] px-4">
+    <app-logo></app-logo>
+    <div></div>
+    <app-icon [icon]="Icons.BURGER" class="cursor-pointer" (click)="toggleMenu()"></app-icon>
+  </div>
+
+  <!-- 📱 MOBILE DROPDOWN MENU -->
+  @if (isMenuOpen()) {
+    <div class="md:hidden flex flex-col items-start gap-4 px-4 pb-4 border-t border-gray-200 bg-white animate-fade-in">
+      <app-search-field></app-search-field>
+      <div class="font-medium cursor-pointer">Home</div>
+      <div class="font-medium cursor-pointer">About</div>
+      <div class="font-medium cursor-pointer">Contact Us</div>
+      <div class="font-medium cursor-pointer">Blog</div>
+      <div class="flex gap-4 mt-2">    
+      <app-icon [icon]="Icons.FAVORITES"></app-icon>
+      <app-icon [icon]="Icons.CART"></app-icon>
+      <app-icon [icon]="Icons.USER"></app-icon>
+      </div>
+    </div>
+  }
 
