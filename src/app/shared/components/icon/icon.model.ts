@@ -39,6 +39,7 @@ export enum Icons {
   CHECK_BOX_TRUE = '24/checkBoxTrue',
   RADIO_FALSE = '24/radioFalse',
   RADIO_TRUE = '24/radioTrue',
+  DEVIDER = '24/devider',
 
   // 32px
   ARROW_BIG = '32/arrow',
