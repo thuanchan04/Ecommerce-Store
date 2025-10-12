@@ -46,6 +46,7 @@ export enum Icons {
   CART = '32/cart',
   FAVORITES = '32/favorites',
   LIKE = '32/like',
+  LOVE = '32/love',
   SEARCH = '32/search',
   USER = '32/user',
 
@@ -63,9 +64,5 @@ export enum Icons {
   DELIVERY = '56/delivery',
   GUARANTEED = '56/guaranteed',
   STOCK = '56/stock',
-
-  //other
-  LOGO_DARK = 'other/logoDark',
-  LOGO_lIGHT = 'other/logoLight',
 
 }

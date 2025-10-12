@@ -8,9 +8,11 @@ import { InputFieldType } from './shared/components/input-field/input-field';
 import { HeaderTop } from "./shared/components/header-top/header-top";
 import { Subnav } from "./shared/components/subnav/subnav";
 import { Footer } from "./shared/components/footer/footer";
+import { ProductCard } from "./shared/components/product-card/product-card";
+import { ImgProductsTypes } from './shared/components/img-products/img-products';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer],
+  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard],
   templateUrl: './app.html'
 })
 export class App {
@@ -18,4 +20,5 @@ export class App {
   LogoTypes = LogoTypes;
   Icons = Icons;
   InputFieldType = InputFieldType;
+  ImgProductsTypes = ImgProductsTypes;
 }
