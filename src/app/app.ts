@@ -7,9 +7,10 @@ import { InputField } from './shared/components/input-field/input-field';
 import { InputFieldType } from './shared/components/input-field/input-field';
 import { HeaderTop } from "./shared/components/header-top/header-top";
 import { Subnav } from "./shared/components/subnav/subnav";
+import { Footer } from "./shared/components/footer/footer";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav],
+  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer],
   templateUrl: './app.html'
 })
 export class App {

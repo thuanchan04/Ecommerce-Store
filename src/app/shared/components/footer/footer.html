@@ -1,0 +1,45 @@
+<div
+  class="border-black bg-black p-20 grid gap-10 w-full h-auto
+         grid-cols-1 md:grid-cols-3 md:gap-20"
+>
+  <!-- Cột 1 -->
+  <div>
+    <app-logo [logoType]="LogoTypes.LIGHT"></app-logo>
+    <p class="text-white mt-4">
+      We are a residential interior design firm located in Portland.
+      Our boutique-studio offers more than
+    </p>
+  </div>
+
+  <!-- Cột 2 -->
+  <div>
+    <p class="text-white font-bold mb-2">Services</p>
+    <p class="text-gray-300">Bonus program</p>
+    <p class="text-gray-300">Gift cards</p>
+    <p class="text-gray-300">Credit and payment</p>
+    <p class="text-gray-300">Service contracts</p>
+    <p class="text-gray-300">Non-cash account</p>
+    <p class="text-gray-300">Payment</p>
+  </div>
+
+  <!-- Cột 3 -->
+  <div>
+    <p class="text-white font-bold mb-2">Assistance to the buyer</p>
+    <p class="text-gray-300">Find an order</p>
+    <p class="text-gray-300">Terms of delivery</p>
+    <p class="text-gray-300">Exchange and return of goods</p>
+    <p class="text-gray-300">Guarantee</p>
+    <p class="text-gray-300">Frequently asked questions</p>
+    <p class="text-gray-300">Terms of use of the size</p>
+  </div>
+
+  <!-- Cột 4: hàng thứ 2 -->
+  <div
+    class="flex items-center gap-5 mt-10 md:col-span-3 md:justify-start"
+  >
+    <app-icon [icon]="Icons.TWITTER"></app-icon>
+    <app-icon [icon]="Icons.FACEBOOK"></app-icon>
+    <app-icon [icon]="Icons.TIKTOK"></app-icon>
+    <app-icon [icon]="Icons.INSTAGRAM"></app-icon>
+  </div>
+</div>
