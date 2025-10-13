@@ -10,9 +10,10 @@ import { Subnav } from "./shared/components/subnav/subnav";
 import { Footer } from "./shared/components/footer/footer";
 import { ProductCard } from "./shared/components/product-card/product-card";
 import { ImgProductsTypes } from './shared/components/img-products/img-products';
+import { Review } from "./shared/components/review/review";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard],
+  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard, Review],
   templateUrl: './app.html'
 })
 export class App {

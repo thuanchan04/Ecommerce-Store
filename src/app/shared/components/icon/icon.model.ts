@@ -40,7 +40,8 @@ export enum Icons {
   RADIO_FALSE = '24/radioFalse',
   RADIO_TRUE = '24/radioTrue',
   DEVIDER = '24/devider',
-
+  STAR_YELLOW = '24/starYellow',
+  STAR_WHITE = '24/starWhite',
   // 32px
   ARROW_BIG = '32/arrow',
   CART = '32/cart',
