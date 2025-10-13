@@ -9,5 +9,7 @@ export class ImgProducts {
   @Input() ImgProductsType = ImgProductsTypes.IP14PRO1;
 }
 export enum ImgProductsTypes {
-  IP14PRO1 = 'assets/products/ip14pro1.svg'
+  IP14PRO1 = 'assets/products/ip14pro1.svg',
+  BANNER = 'assets/products/banner.svg',
+  SMALLER_BANNERS = 'assets/products/smallerBanners.svg'
 }

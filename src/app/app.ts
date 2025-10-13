@@ -12,9 +12,10 @@ import { ProductCard } from "./shared/components/product-card/product-card";
 import { ImgProductsTypes } from './shared/components/img-products/img-products';
 import { Review } from "./shared/components/review/review";
 import { Comment } from "./shared/components/comment/comment";
+import { HomePage } from "./page/components/home-page/home-page";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard, Review, Comment],
+  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard, Review, Comment, HomePage],
   templateUrl: './app.html'
 })
 export class App {

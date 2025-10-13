@@ -12,7 +12,6 @@ export enum Icons {
   ARROW_DOWN = '24/arrowDown',
   ARROW_UP = '24/arrowUp',
   BATTERY = '24/batteryCapacity',
-  CAMERAS = '24/cameras',
   CHEVRON_DOWN = '24/chevronDown',
   CLOSE = '24/close',
   COMPUTERS = '24/computers',
@@ -50,12 +49,13 @@ export enum Icons {
   LOVE = '32/love',
   SEARCH = '32/search',
   USER = '32/user',
-
+  
   // 40px
   BURGER = '40/burger',
-
+  
   // 48px
   COMPUTERS_BIG = '48/computers',
+  CAMERAS = '48/cameras',
   GAMING_BIG = '48/gaming',
   HEADPHONES_BIG = '48/headphones',
   PHONES_BIG = '48/phones',
