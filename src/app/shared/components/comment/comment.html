@@ -1,0 +1,31 @@
+@for (comment of comments; track comment) {
+  <div class="border-gray-300 px-15 py-5">
+    <!-- Avatar + Tên-->
+    <div class="flex items-center gap-3 mb-2">
+      <img [src]="comment.avatar" alt="avatar" class="w-10 h-10 rounded-full">
+      <p class="font-bold">{{ comment.username }}</p>
+    </div>
+    
+    <!-- Sao -->
+    <div class="flex items-center gap-0.5 mb-2">
+      @for (star of getStars(comment.star); track star) {
+        <app-icon [icon]="Icons.STAR_YELLOW" class="w-4 h-4"></app-icon>
+      }
+      @for (star of getEmptyStars(comment.star); track star) {
+        <app-icon [icon]="Icons.STAR_WHITE" class="w-4 h-4"></app-icon>
+      }
+    </div>
+    
+    <!-- Ảnh -->
+    <div class="flex gap-2 mb-2">
+      @for (image of comment.images; track image) {
+        <img [src]="image" alt="comment image" class="w-16 h-16 object-cover rounded-lg">
+      }
+    </div>
+    <!-- Nội dung bình luận -->
+    <p class="text-gray-700 mb-1">{{ comment.comment }}</p>      
+    
+    <!-- Ngày-->
+    <p class="text-sm text-gray-500">{{ formatDate(comment.date) }}</p>
+  </div>
+}
