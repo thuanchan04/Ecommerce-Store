@@ -20,5 +20,13 @@ export enum ImgProductsTypes {
   WATCH6 = 'assets/products/watch6.svg',
   ZFOLD5 = 'assets/products/zFold5.svg',
   IP = 'assets/products/ip.svg',
-  
+  AIR_PODS_MAX = 'assets/products/airPodsMax.svg',
+  APPLE_VISION = 'assets/products/appleVision.svg',
+  MAC_BOOK_AIR = 'assets/products/macBookAir.svg',
+  PLAY_STATION = 'assets/products/playStation.svg',
+
+  AIR_PODS_MAX_DK = 'assets/products/airPodsMaxDk.svg',
+  APPLE_VISION_DK = 'assets/products/appleVisionDk.svg',
+  MAC_BOOK_AIR_DK = 'assets/products/macBookAirDk.svg',
+  PLAY_STATION_DK = 'assets/products/playStationDk.svg',
 }
