@@ -27,10 +27,10 @@ export class Button {
 
     const VARIANTS = {
       white:
-        'border border-white text-white bg-gray-200 hover:bg-gray-300',
-      fill: 'bg-black text-white hover:bg-gray-300',
+        'cursor-pointer border border-white text-white bg-transparent hover:bg-gray-500',
+      fill: 'cursor-pointer bg-black text-white hover:bg-gray-500',
       black:
-        'border border-black text-black hover:bg-gray-300 hover:border-gray-300',
+        'cursor-pointer border border-black text-black bg-transparent hover:bg-gray-300 hover:border-gray-500',
     };
 
     // ✅ Kích thước chính xác theo yêu cầu (px)

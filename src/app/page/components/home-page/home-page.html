@@ -1,6 +1,33 @@
 <app-header-top></app-header-top>
 
-<app-img-products [ImgProductsType]="ImgProductsTypes.BANNER"></app-img-products>
+<!-- ===========================BANNER1================================== -->
+<div class="border bg-zinc-800 pt-8 px-6 md:pt-10 md:px-40 md:flex items-center justify-between gap-10">
+
+  <div class="text-center md:text-left">
+    <p class="text-gray-400 text-2xl md:text-3xl">Pro.Beyond.</p>
+
+    <div class="flex flex-col md:flex-row gap-2 md:gap-5 my-5 justify-center md:justify-start">
+      <p class="text-gray-200 text-6xl md:text-8xl font-extralight">IPhone 14</p>
+      <p class="text-gray-200 text-6xl md:text-8xl font-semibold">Pro</p>
+    </div>
+    <p class="text-gray-400 text-base md:text-xl my-5 max-w-xl mx-auto md:mx-0">Created to change everything for the better. For everyone</p>
+
+    <div class="flex justify-center mb-1 md:justify-start">
+      <app-button 
+        [variant]="'white'" 
+        [label]="'Shop Now'" 
+        [size]="'I'" 
+        [customSizeClass]="'w-[191px] h-[56px]'"
+      ></app-button>
+    </div>
+  </div>
+  
+  <div class="mt-10 md:mt-0 flex justify-center md:justify-end">
+    <app-img-products [ImgProductsType]="ImgProductsTypes.IP"></app-img-products>
+  </div>
+  
+</div>
+
 <app-img-products [ImgProductsType]="ImgProductsTypes.SMALLER_BANNERS"></app-img-products>
 
 <div class="flex items-center justify-between py-10 px-40">
@@ -19,5 +46,69 @@
   <app-category-card [categoryName]="'Gaming'" [imageUrl]="Icons.GAMING_BIG"></app-category-card> 
 </div>
 
+<div class="flex items-center gap-10 mt-40 px-40 text-xl text-gray-400">
+  <p>New Arrival</p>
+  <p>Bestseller</p>
+  <p>Featured Products</p>
+</div>
 
+<div class="grid grid-cols-4 px-40 mt-10 gap-5">
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.IP14PRO1" 
+  [productName]="'Apple iPhone 14 Pro Max 128GB Deep Purple'"
+  [price]="900"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.CAMERA6K" 
+  [productName]="'Blackmagic Pocket Cinema Camera 6K'"
+  [price]="2535"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.APPLE_WATCH9GPS" 
+  [productName]="'Apple Watch Series 9 GPS 41mm Starlight Aluminium'"
+  [price]="399"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.AIR_PODS" 
+  [productName]="'AirPods Max Silver Starlight Aluminium'"
+  [price]="549"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.WATCH6" 
+  [productName]="'Samsung Galaxy Watch6 Classic 47mm Black'"
+  [price]="369"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="true" 
+  [productImage]="ImgProductsTypes.ZFOLD5" 
+  [productName]="'Galaxy Z Fold5 Unclocked | 256GB | Phantom Black'"
+  [price]="1799"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.BUDS_FE" 
+  [productName]="'Galaxy Buds FE\nGraphite'"
+  [price]="99.99"
+  ></app-product-card>
+
+  <app-product-card 
+  [isFavorite]="false" 
+  [productImage]="ImgProductsTypes.IPAD9" 
+  [productName]="'Apple iPad 9 10.2 64GB Wi-Fi Silver (MK2L3) 2021'"
+  [price]="398"
+  ></app-product-card>
+  
+
+</div>
 
