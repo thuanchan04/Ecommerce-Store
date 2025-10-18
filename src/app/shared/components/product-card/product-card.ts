@@ -6,6 +6,7 @@ import { Button } from "../button/button";
 
 @Component({
   selector: 'app-product-card',
+  standalone: true,
   imports: [Icon, ImgProducts, Button],
   templateUrl: './product-card.html'
 })

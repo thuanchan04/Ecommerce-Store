@@ -4,6 +4,7 @@ import { Icon } from "../icon/icon";
 
 @Component({
   selector: 'app-detail-card',
+  standalone: true,
   imports: [Icon],
   templateUrl: './detail-card.html'
 })

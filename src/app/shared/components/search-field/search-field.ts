@@ -4,6 +4,7 @@ import { Icon } from "../icon/icon";
 
 @Component({
   selector: 'app-search-field',
+  standalone: true,
   imports: [Icon],
   templateUrl: './search-field.html'
 })

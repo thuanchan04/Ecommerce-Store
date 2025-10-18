@@ -4,6 +4,7 @@ import { Icon } from "../icon/icon";
 
 @Component({
   selector: 'app-radio-button',
+  standalone: true,
   imports: [Icon],
   templateUrl: './radio-button.html'
 })

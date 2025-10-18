@@ -5,6 +5,7 @@ import { Icon } from "../icon/icon";
 
 @Component({
   selector: 'app-footer',
+  standalone: true,
   imports: [Logo, Icon],
   templateUrl: './footer.html'
 })

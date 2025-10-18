@@ -4,6 +4,7 @@ import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-subnav',
+  standalone: true,
   imports: [Icon],
   templateUrl: './subnav.html'
 })

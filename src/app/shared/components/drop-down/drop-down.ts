@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, Input, Output } from '@angular/c
 
 @Component({
   selector: 'app-drop-down',
+  standalone: true,
   imports: [],
   templateUrl: './drop-down.html'
 })

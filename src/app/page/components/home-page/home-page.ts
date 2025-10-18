@@ -9,6 +9,7 @@ import { Button } from "../../../shared/components/button/button";
 
 @Component({
   selector: 'app-home-page',
+  standalone: true,
   imports: [HeaderTop, ImgProducts, Icon, CategoryCard, ProductCard, Button],
   templateUrl: './home-page.html'
 })

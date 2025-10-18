@@ -5,6 +5,7 @@ import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-comment',
+  standalone: true,
   imports: [Icon],
   templateUrl: './comment.html'
 })

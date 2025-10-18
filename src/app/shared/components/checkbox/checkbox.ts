@@ -4,6 +4,7 @@ import { Icon } from "../icon/icon";
 
 @Component({
   selector: 'app-checkbox',
+  standalone: true,
   imports: [Icon],
   templateUrl: './checkbox.html'
 })

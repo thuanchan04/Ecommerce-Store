@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-img-products',
+  standalone: true,
   imports: [],
   templateUrl: './img-products.html'
 })

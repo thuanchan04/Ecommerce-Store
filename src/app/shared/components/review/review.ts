@@ -5,6 +5,7 @@ import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-review',
+  standalone: true,
   imports: [Icon],
   templateUrl: './review.html'
 })

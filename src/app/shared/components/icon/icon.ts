@@ -3,6 +3,7 @@ import {Icons } from './icon.model';
 
 @Component({
   selector: 'app-icon',
+  standalone: true,
   imports: [],
   templateUrl: './icon.html'
 })

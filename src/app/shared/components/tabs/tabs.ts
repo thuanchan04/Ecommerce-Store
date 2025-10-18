@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tabs',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './tabs.html'
 })

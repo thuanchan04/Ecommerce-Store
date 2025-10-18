@@ -7,6 +7,7 @@ type ButtonSize = 'M' | 'S' | 'I';
 
 @Component({
   selector: 'app-button',
+  standalone: true,
   imports: [Icon],
   templateUrl: './button.html'
 })

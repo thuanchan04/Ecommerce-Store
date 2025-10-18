@@ -4,6 +4,7 @@ import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-category-filter',
+  standalone: true,
   imports: [Icon],
   templateUrl: './category-filter.html'
 })

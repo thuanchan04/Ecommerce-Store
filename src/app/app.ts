@@ -16,6 +16,7 @@ import { HomePage } from "./page/components/home-page/home-page";
 import { Login } from "./page/components/login/login";
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard, Review, Comment, HomePage, Login],
   templateUrl: './app.html'
 })

@@ -6,6 +6,7 @@ import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-header-top',
+  standalone: true,
   imports: [Logo, SearchField, Icon],
   templateUrl: './header-top.html'
 })
