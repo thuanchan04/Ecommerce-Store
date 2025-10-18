@@ -1,4 +1,5 @@
-import { Component, inject, Input, Renderer2 } from '@angular/core';
+import { Component, inject, Input, model, Renderer2 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Icon } from "../icon/icon";
 import { Icons } from '../icon/icon.model';
 import { Button } from "../button/button";
@@ -11,13 +12,16 @@ export enum InputFieldType {
 
 @Component({
   selector: 'app-input-field',
-  imports: [Icon, Button],
+  standalone: true,
+  imports: [FormsModule, Icon, Button],
   templateUrl: './input-field.html'
 })
 export class InputField {
   @Input() label!: string;
   @Input() placeholder = '';
   @Input() type: InputFieldType = InputFieldType.TEXT;
+
+  value = model<string>('');
 
   showPassword = false;
 

@@ -13,9 +13,10 @@ import { ImgProductsTypes } from './shared/components/img-products/img-products'
 import { Review } from "./shared/components/review/review";
 import { Comment } from "./shared/components/comment/comment";
 import { HomePage } from "./page/components/home-page/home-page";
+import { Login } from "./page/components/login/login";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard, Review, Comment, HomePage],
+  imports: [RouterOutlet, Logo, Icon, InputField, HeaderTop, Subnav, Footer, ProductCard, Review, Comment, HomePage, Login],
   templateUrl: './app.html'
 })
 export class App {

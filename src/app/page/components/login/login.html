@@ -1,0 +1,41 @@
+<div class="border-0 bg-gray-100 shadow-2xl rounded-md mx-80 my-10 p-5 space-y-5">
+
+  <div class="flex flex-row gap-50">
+    <app-logo [logoType]="LogoTypes.DARK"></app-logo>
+    <p class="font-semibold text-2xl">Login E Store</p>
+  </div>
+  
+
+  <app-input-field
+    [type]="InputFieldType.TEXT"
+    label="User Name"
+    placeholder="Input user name"
+    class="flex flex-row gap-16 items-center justify-between"
+  ></app-input-field>
+
+  <app-input-field
+    [type]="InputFieldType.PASSWORD"
+    label="Input password"
+    placeholder="Input password"
+    class="flex flex-row gap-8 items-center justify-between"
+  ></app-input-field>
+  
+  <div class="flex flex-row gap-10 px-70">
+    <app-button
+      [variant]="'fill'"
+      label="Login"
+      [size]="'S'"
+      (click)="onLogin()"
+    ></app-button>
+
+    <app-button
+      [variant]="'black'"
+      label="Register"
+      [size]="'S'"
+      (click)="goRegister()"
+    ></app-button>
+  </div>
+
+  <!-- Thông báo lỗi -->
+  <p class="text-red-500 text-center text-sm">{{ errorMessage }}</p>
+</div>
