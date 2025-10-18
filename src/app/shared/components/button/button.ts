@@ -27,16 +27,16 @@ export class Button {
 
     const VARIANTS = {
       white:
-        'cursor-pointer border border-white text-white bg-transparent hover:bg-gray-500',
-      fill: 'cursor-pointer bg-black text-white hover:bg-gray-500',
+        'cursor-pointer border border-white text-white whitespace-nowrap bg-transparent hover:bg-gray-500',
+      fill: 'cursor-pointer bg-black text-white whitespace-nowrap hover:bg-gray-500',
       black:
-        'cursor-pointer border border-black text-black bg-transparent hover:bg-gray-300 hover:border-gray-500',
+        'cursor-pointer border border-black text-black whitespace-nowrap bg-transparent hover:bg-gray-300 hover:border-gray-500',
     };
 
     // ✅ Kích thước chính xác theo yêu cầu (px)
     const SIZES = {
-      M: this.icon ? 'w-[182px] h-[56px]' : 'w-[150px] h-[56px]',
-      S: this.icon ? 'w-[178px] h-[48px]' : 'w-[162px] h-[48px]',
+      M: 'px-8 py-2',
+      S: 'px-8 py-2',
       I: this.customSizeClass || '',
     };
 
