@@ -1,0 +1,12 @@
+<div class="grid grid-flow-col gap-12 whitespace-nowrap">
+  @for (item of items; track item.path; let i = $index) {
+    <button
+      class="text-center font-medium cursor-pointer hover:text-black text-gray-400 transition"
+      routerLinkActive="text-black font-semibold"
+      [routerLink]="item.path"
+      [style.gridColumn]="startColumn + i"
+    >
+      {{ item.label }}
+  </button>
+  }
+</div>

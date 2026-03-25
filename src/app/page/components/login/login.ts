@@ -3,11 +3,12 @@ import { InputField, InputFieldType } from "../../../shared/components/input-fie
 import { Button } from "../../../shared/components/button/button";
 import { Logo, LogoTypes } from "../../../shared/components/logo/logo";
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputField, Button, Logo],
+  imports: [InputField, Button, Logo, FormsModule],
   templateUrl: './login.html',
 })
 export class Login {

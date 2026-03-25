@@ -1,4 +1,4 @@
-<app-header-top class="fixed top-0 left-0 w-full"></app-header-top>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
 
 <!-- ===========================BANNER1================================== -->
 <div class="border bg-zinc-800 px-20 h-[100vh] md:flex items-center justify-between gap-10">
@@ -124,71 +124,83 @@
   <app-category-card [categoryName]="'Gaming'" [imageUrl]="Icons.GAMING_BIG"></app-category-card> 
 </div>
 
-
-<div class="flex items-center gap-6 mt-20 px-5 md:mt-40 md:px-40 md:text-xl md:gap-10 text-gray-400">
-  <p class="whitespace-nowrap">New Arrival</p>
-  <p class="whitespace-nowrap">Bestseller</p>
-  <p class="whitespace-nowrap">Featured Products</p>
-</div>
-
 <!-- ===========================Products Cards================================== -->
-<div class="grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5">
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.IP14PRO1" 
-  [productName]="'Apple iPhone 14 Pro Max 128GB Deep Purple'"
-  [price]="900"
-  ></app-product-card>
 
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.CAMERA6K" 
-  [productName]="'Blackmagic Pocket Cinema Camera 6K'"
-  [price]="2535"
-  ></app-product-card>
-
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.APPLE_WATCH9GPS" 
-  [productName]="'Apple Watch Series 9 GPS 41mm Starlight Aluminium'"
-  [price]="399"
-  ></app-product-card>
-
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.AIR_PODS" 
-  [productName]="'AirPods Max Silver Starlight Aluminium'"
-  [price]="549"
-  ></app-product-card>
-
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.WATCH6" 
-  [productName]="'Samsung Galaxy Watch6 Classic 47mm Black'"
-  [price]="369"
-  ></app-product-card>
-
-  <app-product-card 
-  [isFavorite]="true" 
-  [productImage]="ImgProductsTypes.ZFOLD5" 
-  [productName]="'Galaxy Z Fold5 Unclocked | 256GB | Phantom Black'"
-  [price]="1799"
-  ></app-product-card>
-
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.BUDS_FE" 
-  [productName]="'Galaxy Buds FE\nGraphite'"
-  [price]="99.99"
-  ></app-product-card>
-
-  <app-product-card 
-  [isFavorite]="false" 
-  [productImage]="ImgProductsTypes.IPAD9" 
-  [productName]="'Apple iPad 9 10.2 64GB Wi-Fi Silver (MK2L3) 2021'"
-  [price]="398"
-  ></app-product-card>
+<section id="products-section" class="min-h-screen relative"> 
+  <div  
+      class="sticky top-[5rem] z-40 flex items-center gap-6 
+           py-5 px-[5vw] md:px-[10vw] text-gray-400 text-sm md:text-xl
+           bg-white/80 backdrop-blur-md transition-all duration-500"
+       [class.opacity-100]="showProductTabs"
+       [class.opacity-0]="!showProductTabs"
+       [class.pointer-events-none]="!showProductTabs"
+  >
+    <p class="whitespace-nowrap">New Arrival</p>
+    <p class="whitespace-nowrap">Bestseller</p>
+    <p class="whitespace-nowrap">Featured Products</p>
+  </div>
   
+  <div class="xl:h-[100vh] grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5">
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.IP14PRO1" 
+    [productName]="'Apple iPhone 14 Pro Max 128GB Deep Purple'"
+    [price]="900"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.CAMERA6K" 
+    [productName]="'Blackmagic Pocket Cinema Camera 6K'"
+    [price]="2535"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.APPLE_WATCH9GPS" 
+    [productName]="'Apple Watch Series 9 GPS 41mm Starlight Aluminium'"
+    [price]="399"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.AIR_PODS" 
+    [productName]="'AirPods Max Silver Starlight Aluminium'"
+    [price]="549"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.WATCH6" 
+    [productName]="'Samsung Galaxy Watch6 Classic 47mm Black'"
+    [price]="369"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="true" 
+    [productImage]="ImgProductsTypes.ZFOLD5" 
+    [productName]="'Galaxy Z Fold5 Unclocked | 256GB | Phantom Black'"
+    [price]="1799"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.BUDS_FE" 
+    [productName]="'Galaxy Buds FE\nGraphite'"
+    [price]="99.99"
+    ></app-product-card>
+  
+    <app-product-card 
+    [isFavorite]="false" 
+    [productImage]="ImgProductsTypes.IPAD9" 
+    [productName]="'Apple iPad 9 10.2 64GB Wi-Fi Silver (MK2L3) 2021'"
+    [price]="398"
+    ></app-product-card>
+    
+  
+  </div>
+</section>
 
-</div>
+
+<app-footer></app-footer>
 

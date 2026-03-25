@@ -6,37 +6,63 @@
   <app-logo [logoType]="LogoTypes.DARK"></app-logo>
   <app-search-field></app-search-field>
 
-  <div class="text-center text-gray-400 font-medium cursor-pointer hover:text-black">Home</div>
-  <div class="text-center text-gray-400 font-medium cursor-pointer hover:text-black">About</div>
-  <div class="text-center text-gray-400 font-medium cursor-pointer hover:text-black">Contact Us</div>
-  <div class="text-center text-gray-400 font-medium cursor-pointer hover:text-black">Blog</div>
+  <app-menu-ht [items]="menuItems" [startColumn]="4"></app-menu-ht>
 
-  <app-icon class="cursor-pointer" [icon]="Icons.FAVORITES"></app-icon>
-  <app-icon class="cursor-pointer" [icon]="Icons.CART"></app-icon>
-  <app-icon class="cursor-pointer" [icon]="Icons.USER"></app-icon>
+  <div class="grid grid-flow-col gap-5 pl-8">
+    <app-icon 
+    class="cursor-pointer hover:scale-110 transition"
+    [icon]="Icons.FAVORITES"
+    [routerLink]="'/favorites'"
+    ></app-icon>
+
+    <app-icon 
+      class="cursor-pointer hover:scale-110 transition"
+      [icon]="Icons.CART"
+      [routerLink]="'/cart'"
+    ></app-icon>
+
+    <app-icon 
+      class="cursor-pointer hover:scale-110 transition"
+      [icon]="Icons.USER"
+      [routerLink]="'/user'"
+    ></app-icon>
+  </div>
+  
+
   <div></div>
 </div>
 
 
-  <div class="flex bg-white md:hidden items-center justify-between w-full h-[56px] px-4">
+  <div class="flex bg-white md:hidden items-center justify-between w-full h-[56px] ">
     <app-logo></app-logo>
-    <div></div>
-    <app-icon [icon]="Icons.BURGER" class="cursor-pointer" (click)="toggleMenu()"></app-icon>
+    <app-icon 
+    [icon]="Icons.BURGER" 
+    class="cursor-pointer hover:scale-110 transition"
+    (click)="toggleMenu()"
+  ></app-icon>
   </div>
 
   <!-- 📱 MOBILE DROPDOWN MENU -->
   @if (isMenuOpen()) {
-    <div class="md:hidden flex flex-col items-start gap-4 px-4 pb-4 border-t border-gray-200 bg-white animate-fade-in">
+    <div class="md:hidden flex flex-col items-start gap-4 px-4 pb-4 border-t border-gray-200 bg-white transition-all duration-200 ease-in-out">
       <app-search-field></app-search-field>
-      <div class="font-medium cursor-pointer">Home</div>
-      <div class="font-medium cursor-pointer">About</div>
-      <div class="font-medium cursor-pointer">Contact Us</div>
-      <div class="font-medium cursor-pointer">Blog</div>
-      <div class="flex gap-4 mt-2">    
-      <app-icon [icon]="Icons.FAVORITES"></app-icon>
-      <app-icon [icon]="Icons.CART"></app-icon>
-      <app-icon [icon]="Icons.USER"></app-icon>
+       @for (item of menuItems; track item.path) {
+      <div 
+        class="font-medium cursor-pointer hover:text-black text-gray-500"
+        routerLinkActive="text-black font-semibold"
+        [routerLink]="item.path"
+        (mousedown)="toggleMenu()"
+      >
+        {{ item.label }}
       </div>
+    }
+
+    <!-- ICONS -->
+    <div class="hover:scale-110 transition">    
+      <app-icon [icon]="Icons.FAVORITES" [routerLink]="'/favorites'"></app-icon>
+      <app-icon [icon]="Icons.CART" [routerLink]="'/cart'"></app-icon>
+      <app-icon [icon]="Icons.USER" [routerLink]="'/user'"></app-icon>
+    </div>
     </div>
   }
 
