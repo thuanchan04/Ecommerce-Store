@@ -41,6 +41,7 @@ export enum Icons {
   DEVIDER = '24/devider',
   STAR_YELLOW = '24/starYellow',
   STAR_WHITE = '24/starWhite',
+  CAMERA = '24/camera',
   // 32px
   ARROW_BIG = '32/arrow',
   CART = '32/cart',

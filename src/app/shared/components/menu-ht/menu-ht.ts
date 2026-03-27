@@ -1,9 +1,10 @@
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu-ht',
-  imports: [RouterModule],
+  imports: [RouterModule, NgClass],
   templateUrl: './menu-ht.html'
 })
 export class MenuHT {

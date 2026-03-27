@@ -116,91 +116,56 @@
   </div>  
 </div>
 <div class="grid grid-cols-2 gap-5 px-6 md:grid-cols-6 md:px-50">
-  <app-category-card [categoryName]="'Phone'" [imageUrl]="Icons.PHONES_BIG"></app-category-card>
-  <app-category-card class="whitespace-nowrap" [categoryName]="'Smart Watches'" [imageUrl]="Icons.SMART_WATCHES_BIG"></app-category-card>
-  <app-category-card [categoryName]="'Cameras'" [imageUrl]="Icons.CAMERAS"></app-category-card>
-  <app-category-card [categoryName]="'Headphones'" [imageUrl]="Icons.HEADPHONES_BIG"></app-category-card>
-  <app-category-card [categoryName]="'Computers'" [imageUrl]="Icons.COMPUTERS_BIG"></app-category-card>
-  <app-category-card [categoryName]="'Gaming'" [imageUrl]="Icons.GAMING_BIG"></app-category-card> 
+  @for (item of categories; track item.name) {
+    <app-category-card 
+      [categoryName]="item.name" 
+      [imageUrl]="item.icon"
+    ></app-category-card>
+  }
 </div>
 
 <!-- ===========================Products Cards================================== -->
 
-<section id="products-section" class="min-h-screen relative"> 
-  <div  
-      class="sticky top-[5rem] z-40 flex items-center gap-6 
-           py-5 px-[5vw] md:px-[10vw] text-gray-400 text-sm md:text-xl
-           bg-white/80 backdrop-blur-md transition-all duration-500"
-       [class.opacity-100]="showProductTabs"
-       [class.opacity-0]="!showProductTabs"
-       [class.pointer-events-none]="!showProductTabs"
-  >
-    <p class="whitespace-nowrap">New Arrival</p>
-    <p class="whitespace-nowrap">Bestseller</p>
-    <p class="whitespace-nowrap">Featured Products</p>
-  </div>
+<section id="products-section" class="grid grid-cols-5 px-40 mt-10 whitespace-nowrap text-xl text-gray-500  "> 
+ 
+    <p class="hover:text-black cursor-pointer">New Arrival</p>
+    <p class="hover:text-black cursor-pointer">Bestseller</p>
+    <p class="hover:text-black cursor-pointer">Featured Products</p>
   
-  <div class="xl:h-[100vh] grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5">
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.IP14PRO1" 
-    [productName]="'Apple iPhone 14 Pro Max 128GB Deep Purple'"
-    [price]="900"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.CAMERA6K" 
-    [productName]="'Blackmagic Pocket Cinema Camera 6K'"
-    [price]="2535"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.APPLE_WATCH9GPS" 
-    [productName]="'Apple Watch Series 9 GPS 41mm Starlight Aluminium'"
-    [price]="399"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.AIR_PODS" 
-    [productName]="'AirPods Max Silver Starlight Aluminium'"
-    [price]="549"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.WATCH6" 
-    [productName]="'Samsung Galaxy Watch6 Classic 47mm Black'"
-    [price]="369"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="true" 
-    [productImage]="ImgProductsTypes.ZFOLD5" 
-    [productName]="'Galaxy Z Fold5 Unclocked | 256GB | Phantom Black'"
-    [price]="1799"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.BUDS_FE" 
-    [productName]="'Galaxy Buds FE\nGraphite'"
-    [price]="99.99"
-    ></app-product-card>
-  
-    <app-product-card 
-    [isFavorite]="false" 
-    [productImage]="ImgProductsTypes.IPAD9" 
-    [productName]="'Apple iPad 9 10.2 64GB Wi-Fi Silver (MK2L3) 2021'"
-    [price]="398"
-    ></app-product-card>
-    
-  
-  </div>
 </section>
+  <div class="grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5">
+    @for (p of products; track p.name) {
+      <app-product-card
+        [isFavorite]="p.isFavorite"
+        [productImage]="p.image"
+        [productName]="p.name"
+        [price]="p.price"
+      ></app-product-card>
+    }
+  </div>
 
+  <!-- ============================Featured Cards================================== --> 
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-0 my-20">
+    @for (fp of featuredProducts; track fp.name) {
+      <app-featured-card
+        [featureImage]="fp.image"
+        [featureName]="fp.name"
+        [featureDescription]="fp.description"
+      ></app-featured-card>
+    }
+  </div>
 
+  <!-- ============================Discounts up to-50%================================== --> 
+    <p class="text-2xl font-extralight px-6 md: px-40">Discounts up to 50%</p>
+    <div class="grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5 md:my-10">
+    @for (pd of productDiscount; track pd.name) {
+      <app-product-card
+        [isFavorite]="pd.isFavorite"
+        [productImage]="pd.image"
+        [productName]="pd.name"
+        [price]="pd.price"
+      ></app-product-card>
+    }
+  </div>
 <app-footer></app-footer>
 

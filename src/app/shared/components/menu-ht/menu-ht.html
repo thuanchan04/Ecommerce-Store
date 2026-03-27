@@ -1,12 +1,14 @@
 <div class="grid grid-flow-col gap-12 whitespace-nowrap">
   @for (item of items; track item.path; let i = $index) {
-    <button
-      class="text-center font-medium cursor-pointer hover:text-black text-gray-400 transition"
-      routerLinkActive="text-black font-semibold"
-      [routerLink]="item.path"
-      [style.gridColumn]="startColumn + i"
-    >
-      {{ item.label }}
-  </button>
+    <a
+    #rla="routerLinkActive"
+    routerLinkActive
+    [routerLink]="item.path"
+    [routerLinkActiveOptions]="{ exact: true }"
+    [ngClass]="rla.isActive ? 'text-black font-bold' : 'text-gray-400'"
+    [style.gridColumn]="startColumn + i"
+  >
+    {{ item.label }}
+  </a>
   }
 </div>

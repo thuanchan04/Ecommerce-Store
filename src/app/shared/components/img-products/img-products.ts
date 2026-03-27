@@ -30,4 +30,12 @@ export enum ImgProductsTypes {
   APPLE_VISION_DK = 'assets/products/appleVisionDk.svg',
   MAC_BOOK_AIR_DK = 'assets/products/macBookAirDk.svg',
   PLAY_STATION_DK = 'assets/products/playStationDk.svg',
+
+  GR1 = 'assets/products/gr1.svg',
+  GR2 = 'assets/products/gr2.svg',
+  GR3 = 'assets/products/gr3.svg',
+  GR4 = 'assets/products/gr4.svg',
+
+  IP14PRo512 = 'assets/products/ip14pro512.svg',
+  IP14PRO1T = 'assets/products/ip14pro1T.svg',
 }

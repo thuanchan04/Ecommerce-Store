@@ -1,1 +1,18 @@
-<p>favorite-products works!</p>
+<app-header-top></app-header-top>
+<app-subnav></app-subnav>
+<div class="border border-white bg-gray-100">
+  <div class="border border-md border-white mx-50 my-20 bg-white">
+    <h1 class="text-xl font-semibold">Your wishlist has {{ favoriteCount }} items</h1>
+    <div class="grid-cols-2 md:grid-cols-4 gap-5">
+    @for (p of favoriteProducts; track p.name) {
+      <app-product-card 
+        [isFavorite]="p.isFavorite"
+        [productImage]="p.image"
+        [productName]="p.name"
+        [price]="p.price"
+      ></app-product-card>
+    }
+    </div>
+  </div>
+  
+</div>

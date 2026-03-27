@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { HeaderTop } from "../../../shared/components/header-top/header-top";
+import { Subnav } from "../../../shared/components/subnav/subnav";
 
 @Component({
   selector: 'app-blog',
-  imports: [],
-  templateUrl: './blog.html',
-  styleUrl: './blog.css'
+  imports: [HeaderTop, Subnav],
+  templateUrl: './blog.html'
 })
 export class Blog {
 
