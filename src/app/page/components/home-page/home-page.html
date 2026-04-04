@@ -134,7 +134,7 @@
   
 </section>
   <div class="grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5">
-    @for (p of products; track p.name) {
+    @for (p of products; track p.id) {
       <app-product-card
         [isFavorite]="p.isFavorite"
         [productImage]="p.image"
@@ -146,10 +146,10 @@
 
   <!-- ============================Featured Cards================================== --> 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-0 my-20">
-    @for (fp of featuredProducts; track fp.name) {
+    @for (fp of featuredProducts; track fp.id) {
       <app-featured-card
         [featureImage]="fp.image"
-        [featureName]="fp.name"
+        [featureName]="fp.title"
         [featureDescription]="fp.description"
       ></app-featured-card>
     }
@@ -158,7 +158,7 @@
   <!-- ============================Discounts up to-50%================================== --> 
     <p class="text-2xl font-extralight px-6 md: px-40">Discounts up to 50%</p>
     <div class="grid grid-cols-2 px-6 mt-5 gap-4 md:grid-cols-4 md:px-40 md:mt-10 md:gap-5 md:my-10">
-    @for (pd of productDiscount; track pd.name) {
+    @for (pd of productDiscount; track pd.id) {
       <app-product-card
         [isFavorite]="pd.isFavorite"
         [productImage]="pd.image"
