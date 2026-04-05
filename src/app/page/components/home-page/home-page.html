@@ -140,6 +140,7 @@
         [productImage]="p.image"
         [productName]="p.name"
         [price]="p.price"
+        (favoriteChange)="onToggleFavorite(p.id)"
       ></app-product-card>
     }
   </div>
@@ -164,6 +165,7 @@
         [productImage]="pd.image"
         [productName]="pd.name"
         [price]="pd.price"
+        (favoriteChange)="onToggleFavorite(pd.id)"
       ></app-product-card>
     }
   </div>

@@ -32,4 +32,11 @@ export class ProductService {
   getById(id: number): Product | undefined {
     return PRODUCTS.find(p => p.id === id);
   }
+
+  toggleFavorite(id: number) {
+    const product = PRODUCTS.find(p => p.id === id);
+    if (product) {
+      product.isFavorite = !product.isFavorite;
+    }
+  }
 }

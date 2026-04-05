@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Icons } from '../icon/icon.model';
 import { Icon } from "../icon/icon";
 import { ImgProducts, ImgProductsTypes } from "../img-products/img-products";
@@ -17,10 +17,11 @@ export class ProductCard {
   @Input() isFavorite = false;
   @Input() price!: number;
 
+  @Output() favoriteChange = new EventEmitter<void>();
   Icons = Icons;
   ImgProductsTypes = ImgProductsTypes;
 
   toggleFavorite() {
-    this.isFavorite = !this.isFavorite;
+    this.favoriteChange.emit();
   }
 }

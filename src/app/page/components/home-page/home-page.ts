@@ -51,4 +51,8 @@ export class HomePage implements OnInit {
     this.products = this.productService.getNonDiscount();
     this.productDiscount = this.productService.getDiscount();
   }
+  onToggleFavorite(id: number) {
+    this.productService.toggleFavorite(id);
+    this.loadData(); // reload lại
+  }
 }
