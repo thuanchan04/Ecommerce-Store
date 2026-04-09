@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { Logo, LogoTypes } from "../logo/logo";
 import { SearchField } from "../search-field/search-field";
 import { Icon } from "../icon/icon";
@@ -13,6 +13,8 @@ import { MenuHT } from '../menu-ht/menu-ht';
   templateUrl: './header-top.html'
 })
 export class HeaderTop {
+
+  @Output() searchChange = new EventEmitter<string>();
 
   LogoTypes = LogoTypes;
   Icons = Icons;
@@ -31,6 +33,9 @@ export class HeaderTop {
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);
+  }
+  onSearch(value: string) {
+    this.searchChange.emit(value);
   }
 
 }

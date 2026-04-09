@@ -12,26 +12,17 @@ import { CATEGORIES } from '../../../data/category.data';
 import { FEATURED_BANNERS } from '../../../data/featured.data';
 import { Product } from '../../../data/product.data';
 import { ProductService } from '../../../core/service/product.service';
+import { Router } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [
-    HeaderTop,
-    ImgProducts,
-    Icon,
-    ProductCard,
-    Button,
-    Footer,
-    CategoryCard,
-    FeaturedCard
-  ],
+  imports: [ HeaderTop, ImgProducts, Icon, ProductCard, Button, Footer, CategoryCard, FeaturedCard ],
   templateUrl: './home-page.html'
 })
 export class HomePage implements OnInit {
-
   categories = CATEGORIES;
   featuredProducts = FEATURED_BANNERS;
 
@@ -42,6 +33,7 @@ export class HomePage implements OnInit {
   Icons = Icons;
 
   private productService = inject(ProductService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.loadData();
@@ -55,4 +47,15 @@ export class HomePage implements OnInit {
     this.productService.toggleFavorite(id);
     this.loadData(); // reload lại
   }
+  goToCategory(categoryId: string) {
+    this.router.navigate(['/products'], {
+      queryParams: { category: categoryId }
+    });
+  }
+  onSearch(keyword: string) {
+    this.router.navigate(['/products'], {
+      queryParams: { search: keyword }
+    });
+  }
+  
 }

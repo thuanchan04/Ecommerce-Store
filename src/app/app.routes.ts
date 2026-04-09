@@ -8,6 +8,7 @@ import { Blog } from './page/components/blog/blog';
 import { FavoriteProducts } from './page/components/favorite-products/favorite-products';
 import { ShoppingCart } from './page/components/shopping-cart/shopping-cart';
 import { UserProfile } from './page/components/user-profile/user-profile';
+import { ProductsPage } from './page/components/products-page/products-page';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,6 @@ export const ROUTES: Routes = [
   { path: 'blog', component: Blog },
   { path: 'favorites', component: FavoriteProducts },
   { path: 'cart', component: ShoppingCart },
-  { path: 'user', component: UserProfile}
-
+  { path: 'user', component: UserProfile},
+  { path: 'products', component: ProductsPage}
 ];

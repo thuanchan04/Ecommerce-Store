@@ -8,4 +8,43 @@
     type="text"
     placeholder="Search"
     class="w-full pl-12 p-3 border border-white rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
+    (input)="onInput($event.target.value)"
   />
+
+  @if (showDropdown) {
+  <div class="absolute top-full left-0 w-full bg-white shadow-lg rounded-lg mt-2 z-50 p-3">
+
+    <!-- Categories -->
+    @if (filteredCategories.length > 0) {
+      <p class="text-xs text-gray-400 mb-2">Categories</p>
+      @for (c of filteredCategories; track c.id) {
+        <div 
+          class="p-2 hover:bg-gray-100 cursor-pointer rounded"
+          role="button"
+          tabindex="0"
+          (click)="onSelectKeyword(c.name)"
+          (keydown.enter)="onSelectKeyword(c.name)"
+          (keydown.space)="onSelectKeyword(c.name)"
+          [innerHTML]="highlight(c.name)">
+        </div>
+      }
+    }
+
+    <!-- Products -->
+    @if (filteredProducts.length > 0) {
+      <p class="text-xs text-gray-400 mt-3 mb-2">Products</p>
+      @for (p of filteredProducts; track p.id) {
+        <div 
+          class="p-2 hover:bg-gray-100 cursor-pointer rounded"
+          role="button"
+          tabindex="0"
+          (click)="onSelectKeyword(p.name)"
+          (keydown.enter)="onSelectKeyword(p.name)"
+          (keydown.space)="onSelectKeyword(p.name)"
+          [innerHTML]="highlight(p.name)">
+        </div>
+      }
+    }
+
+  </div>
+}

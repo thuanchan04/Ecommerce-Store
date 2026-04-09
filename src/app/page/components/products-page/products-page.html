@@ -1,1 +1,10 @@
-<p>products-page works!</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-10">
+  @for (p of products; track p.id) {
+    <app-product-card
+      [isFavorite]="p.isFavorite"
+      [productImage]="p.image"
+      [productName]="p.name"
+      [price]="p.price"
+    ></app-product-card>
+  }
+</div>

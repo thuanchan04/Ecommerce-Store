@@ -1,4 +1,4 @@
-<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
+<app-header-top class="fixed top-0 left-0 z-50 w-full" (searchChange)="onSearch($event)"></app-header-top>
 
 <!-- ===========================BANNER1================================== -->
 <div class="border bg-zinc-800 px-20 h-[100vh] md:flex items-center justify-between gap-10">
@@ -120,6 +120,7 @@
     <app-category-card 
       [categoryName]="item.name" 
       [imageUrl]="item.icon"
+      (click)="goToCategory(item.id)"
     ></app-category-card>
   }
 </div>

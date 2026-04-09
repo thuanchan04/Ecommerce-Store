@@ -4,7 +4,7 @@
 >
   <div></div>
   <app-logo [logoType]="LogoTypes.DARK"></app-logo>
-  <app-search-field></app-search-field>
+  <app-search-field (searchChange)="onSearch($event)" ></app-search-field>
 
   <app-menu-ht [items]="menuItems" [startColumn]="4"></app-menu-ht>
 
@@ -45,7 +45,7 @@
   <!-- 📱 MOBILE DROPDOWN MENU -->
   @if (isMenuOpen()) {
     <div class="md:hidden flex flex-col items-start gap-4 px-4 pb-4 border-t border-gray-200 bg-white transition-all duration-200 ease-in-out">
-      <app-search-field></app-search-field>
+      <app-search-field (searchChange)="onSearch($event)"></app-search-field>
        @for (item of menuItems; track item.path) {
       <div 
         class="font-medium cursor-pointer hover:text-black text-gray-500"
