@@ -4,13 +4,18 @@
     <app-icon [icon]="checked ? Icons.CHECK_BOX_TRUE : Icons.CHECK_BOX_FALSE"></app-icon>
   </div>
 
-  <!-- Text (nếu có) -->
+  <!-- Text + Number (nếu có) -->
   @if (text) {
     <span
-      class="font-semibold cursor-pointer select-none"
+      class="cursor-pointer select-none"
       (mousedown)="toggle()"
     >
       {{ text }}
+      @if (number !== undefined) {
+        <span class="text-gray-400 font-normal">
+          {{ number }}
+        </span>
+      }
     </span>
   }
 </div>

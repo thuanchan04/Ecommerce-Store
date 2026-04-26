@@ -1,0 +1,45 @@
+<div class="flex flex-col gap-4">
+
+  @for (group of filters; track group.id) {
+
+    <div class="border-b border-gray-200 rounded-lg">
+
+      <!-- HEADER -->
+      <div
+        class="flex justify-between items-center p-4 cursor-pointer"
+        role="button"
+        tabindex="0"
+        (click)="toggleGroup(group.id)"
+        (keydown.enter)="toggleGroup(group.id)"
+        (keydown.space)="toggleGroup(group.id)"
+      >
+        <p class="font-bold">{{ group.title }}</p>
+
+        <app-icon
+          [icon]="isOpen[group.id] ? Icons.ARROW_UP : Icons.ARROW_DOWN">
+        </app-icon>
+      </div>
+
+      <!-- OPTIONS -->
+      @if (isOpen[group.id]) {
+        <div class="flex flex-col gap-2 px-4 pb-4">
+
+          @for (opt of group.options; track opt.value) {
+
+            <app-checkbox
+              [text]="opt.label"
+              [number]="getCount(group.id, opt.value)"
+              [checked]="selected[group.id]?.includes(opt.value) ?? false"
+              (checkedChange)="toggleOption(group.id, opt.value, $event)">
+            </app-checkbox>
+
+          }
+
+        </div>
+      }
+
+    </div>
+
+  }
+
+</div>

@@ -38,4 +38,8 @@ export enum ImgProductsTypes {
 
   IP14PRo512 = 'assets/products/ip14pro512.svg',
   IP14PRO1T = 'assets/products/ip14pro1T.svg',
+
+  IP11 = 'assets/products/ip11.svg',
+  IP13MINI = 'assets/products/ip13mini.svg',
+  IP14 = 'assets/products/ip14.svg',
 }

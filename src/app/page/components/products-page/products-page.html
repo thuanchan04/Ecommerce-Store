@@ -1,10 +1,58 @@
-<div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-10">
-  @for (p of products; track p.id) {
-    <app-product-card
-      [isFavorite]="p.isFavorite"
-      [productImage]="p.image"
-      [productName]="p.name"
-      [price]="p.price"
-    ></app-product-card>
-  }
-</div>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
+
+<form action="products-page.html" class="px-10">
+    <!-- Breadcrumb -->
+  <div class="mt-20 px-13 py-6 text-gray-500">
+    Home > Catalog >
+    <span class="text-black font-medium">
+      {{ currentCategoryName }}
+    </span>
+  </div>
+
+  <!-- Layout -->
+  <div class="grid grid-cols-4 gap-6 px-10 pb-10">
+
+    <!-- LEFT FILTER SIDEBAR -->
+    <div class="col-span-1">
+      <app-filter-sidebar
+        [filters]="filters"
+        [products]="products"
+        (filterChange)="onFilterChange($event)">
+      </app-filter-sidebar>
+    </div>
+
+    <!-- RIGHT PRODUCTS -->
+    <div class="col-span-3">
+
+      <div class="flex justify-between items-center">
+  
+         <!-- LEFT -->
+        <div class="flex gap-2">
+          <p class="text-gray-500">Selected Products:</p>
+          <p class="font-bold">{{ filteredProducts.length }}</p>
+        </div>
+
+        <!-- RIGHT -->
+        <app-drop-down 
+          [options]="sortOptions"
+          [(selectedOption)]="sortOption"></app-drop-down>
+
+    </div>
+      <div class="grid grid-cols-3 gap-5 pt-10">
+
+        @for (p of filteredProducts; track p.id) {
+          <app-product-card
+            [isFavorite]="p.isFavorite"
+            [productImage]="p.image"
+            [productName]="p.name"
+            [price]="p.price"
+          ></app-product-card>
+        }
+
+      </div>
+
+    </div>
+
+  </div>
+
+</form>

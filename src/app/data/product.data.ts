@@ -8,6 +8,7 @@ export interface Product {
   price: number;
   isFavorite: boolean;
   category: string;
+  brand: string;
   isFeatured: boolean;
   isDiscount: boolean;
 }
@@ -21,6 +22,7 @@ export const PRODUCTS: Product[] = [
     price: 900,
     isFavorite: false,
     category: 'phone',
+    brand: 'Apple',
     isFeatured: true,
     isDiscount: false
   },
@@ -31,6 +33,7 @@ export const PRODUCTS: Product[] = [
     price: 2535,
     isFavorite: false,
     category: 'camera',
+    brand: 'Blackmagic',
     isFeatured: true,
     isDiscount: false
   },
@@ -41,6 +44,7 @@ export const PRODUCTS: Product[] = [
     price: 399,
     isFavorite: true,
     category: 'watch',
+    brand: 'Apple',
     isFeatured: false,
     isDiscount: false
   },
@@ -51,6 +55,7 @@ export const PRODUCTS: Product[] = [
     price: 549,
     isFavorite: false,
     category: 'headphone',
+    brand: 'Apple',
     isFeatured: false,
     isDiscount: false
   },
@@ -61,6 +66,7 @@ export const PRODUCTS: Product[] = [
     price: 369,
     isFavorite: false,
     category: 'watch',
+    brand: 'Samsung',
     isFeatured: false,
     isDiscount: false
   },
@@ -71,6 +77,7 @@ export const PRODUCTS: Product[] = [
     price: 1799,
     isFavorite: true,
     category: 'phone',
+    brand: 'Samsung',
     isFeatured: true,
     isDiscount: false
   },
@@ -81,6 +88,7 @@ export const PRODUCTS: Product[] = [
     price: 99.99,
     isFavorite: false,
     category: 'headphone',
+    brand: 'Samsung',
     isFeatured: false,
     isDiscount: false
   },
@@ -91,6 +99,7 @@ export const PRODUCTS: Product[] = [
     price: 398,
     isFavorite: false,
     category: 'tablet',
+    brand: 'Apple',
     isFeatured: true,
     isDiscount: false
   },
@@ -103,6 +112,7 @@ export const PRODUCTS: Product[] = [
     price: 1437,
     isFavorite: false,
     category: 'phone',
+    brand: 'Apple',
     isFeatured: false,
     isDiscount: true
   },
@@ -113,6 +123,7 @@ export const PRODUCTS: Product[] = [
     price: 399,
     isFavorite: true,
     category: 'watch',
+    brand: 'Apple',
     isFeatured: false,
     isDiscount: true
   },
@@ -123,6 +134,7 @@ export const PRODUCTS: Product[] = [
     price: 500,
     isFavorite: false,
     category: 'headphone',
+    brand: 'Apple',
     isFeatured: false,
     isDiscount: true
   },
@@ -133,7 +145,64 @@ export const PRODUCTS: Product[] = [
     price: 1200,
     isFavorite: false,
     category: 'phone',
+    brand: 'Apple',
     isFeatured: false,
     isDiscount: true
+  },
+  {
+    id: 13,
+    name: 'Apple iPhone 11 64GB Black',
+    image: ImgProductsTypes.IP11,
+    price: 599,
+    isFavorite: false,
+    category: 'phone',
+    brand: 'Apple',
+    isFeatured: false,
+    isDiscount: false
+  },
+  {
+    id: 14,
+    name: 'Apple iPhone 13 Mini 128GB Pink',
+    image: ImgProductsTypes.IP13MINI,
+    price: 699,
+    isFavorite: false,
+    category: 'phone',
+    brand: 'Apple',
+    isFeatured: false,
+    isDiscount: false
+  },
+  {
+    id: 15,
+    name: 'Apple iPhone 14 128GB Blue',
+    image: ImgProductsTypes.IP14,
+    price: 1399,
+    isFavorite: false,
+    category: 'phone',
+    brand: 'Apple',
+    isFeatured: false,
+    isDiscount: false
+  },
+  {
+    id: 16,
+    name: 'Apple iPhone 11 256GB White',
+    image: ImgProductsTypes.IP11,
+     price: 550,
+    isFavorite: false,
+    category: 'phone',
+    brand: 'Apple',
+    isFeatured: false,
+    isDiscount: false
+  },
+  {
+    id: 17,
+    name: 'Apple iPhone 14 Pro 256GB Silver',
+    image: ImgProductsTypes.IP14PRO1,
+     price: 1399,
+    isFavorite: false,
+    category: 'phone',
+    brand: 'Apple',
+    isFeatured: false,
+    isDiscount: false
   }
+
 ];

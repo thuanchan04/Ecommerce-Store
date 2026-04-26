@@ -11,6 +11,7 @@ import { Icon } from "../icon/icon";
 export class Checkbox {
   @Input() checked = false;
   @Input() text?: string;
+  @Input() number?: number;
   
   @Output() checkedChange = new EventEmitter<boolean>();
 
