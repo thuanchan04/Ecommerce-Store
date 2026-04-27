@@ -1,24 +1,29 @@
-import { Component, Input } from '@angular/core';
-import { MOCK_REVIEWS } from '../review/mock_review';
+import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
+import { ReviewService, ReviewComment } from '../../../core/service/review.service';
 import { Icon } from "../icon/icon";
 import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-comment',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [Icon],
   templateUrl: './comment.html'
 })
 export class Comment {
-  @Input() comments = MOCK_REVIEWS.reviews;
+  private reviewService = inject(ReviewService);
+
   Icons = Icons;
 
-  getStars(star: number): number[] {
-    return Array(Math.floor(star)).fill(0);
-  }
+  readonly comments = computed<ReviewComment[]>(() => this.reviewService.getComments());
 
-  getEmptyStars(star: number): number[] {
-    return Array(5 - Math.floor(star)).fill(0);
+  getStarFills(star: number): number[] {
+    return [1, 2, 3, 4, 5].map(i => {
+      const diff = star - (i - 1);
+      if (diff >= 1) return 100;
+      if (diff <= 0) return 0;
+      return Math.round(diff * 100);
+    });
   }
 
   formatDate(dateStr: string): string {
@@ -30,5 +35,4 @@ export class Comment {
       day: 'numeric'
     });
   }
-
 }

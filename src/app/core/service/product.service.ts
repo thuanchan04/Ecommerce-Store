@@ -1,42 +1,46 @@
-import { Injectable } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 import { Product, PRODUCTS } from '../../data/product.data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  private readonly _products = signal<Product[]>(PRODUCTS.map(p => ({ ...p })));
+
+  readonly products = this._products.asReadonly();
+  readonly favorites = computed(() => this._products().filter(p => p.isFavorite));
 
   getAll(): Product[] {
-    return PRODUCTS;
+    return this._products();
   }
+
   getNonDiscount(): Product[] {
-    return PRODUCTS.filter(p => !p.isDiscount);
+    return this._products().filter(p => !p.isDiscount);
   }
 
   getFeatured(): Product[] {
-    return PRODUCTS.filter(p => p.isFeatured);
+    return this._products().filter(p => p.isFeatured);
   }
 
   getDiscount(): Product[] {
-    return PRODUCTS.filter(p => p.isDiscount);
+    return this._products().filter(p => p.isDiscount);
   }
 
   getByCategory(category: string): Product[] {
-    return PRODUCTS.filter(p => p.category === category);
+    return this._products().filter(p => p.category === category);
   }
 
   getFavorites(): Product[] {
-    return PRODUCTS.filter(p => p.isFavorite);
+    return this._products().filter(p => p.isFavorite);
   }
 
   getById(id: number): Product | undefined {
-    return PRODUCTS.find(p => p.id === id);
+    return this._products().find(p => p.id === id);
   }
 
-  toggleFavorite(id: number) {
-    const product = PRODUCTS.find(p => p.id === id);
-    if (product) {
-      product.isFavorite = !product.isFavorite;
-    }
+  toggleFavorite(id: number): void {
+    this._products.update(products =>
+      products.map(p => p.id === id ? { ...p, isFavorite: !p.isFavorite } : p)
+    );
   }
 }

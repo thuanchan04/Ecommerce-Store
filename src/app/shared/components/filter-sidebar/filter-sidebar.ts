@@ -44,11 +44,11 @@ export class FilterSidebar {
     this.filterChange.emit(this.selected);
   }
 
-  // 🔥 COUNT logic
+  // Count products matching this filter option
   getCount(groupId: string, value: string): number {
     return this.products.filter(p => {
       if (groupId === 'brand') {
-        return p.name.toLowerCase().includes(value.toLowerCase());
+        return p.brand.toLowerCase() === value.toLowerCase();
       }
       return true;
     }).length;

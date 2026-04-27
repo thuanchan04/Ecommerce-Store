@@ -1,4 +1,49 @@
 
-<app-header-top></app-header-top>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
 <app-subnav></app-subnav>
-<p>blog works!</p>
+
+<div class="mt-20 min-h-screen">
+  <!-- Hero -->
+  <div class="bg-gray-50 py-12 text-center">
+    <h1 class="text-4xl font-bold">Tech Blog</h1>
+    <p class="text-gray-500 mt-2">Expert reviews, guides, and the latest in tech</p>
+  </div>
+
+  <!-- Posts grid -->
+  <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    @for (post of posts; track post.id) {
+      <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+        <!-- Image placeholder -->
+        <div class="bg-gradient-to-br from-gray-100 to-gray-200 h-48 flex items-center justify-center text-6xl">
+          {{ post.image }}
+        </div>
+
+        <div class="p-6 flex flex-col flex-1 gap-3">
+          <!-- Category + date -->
+          <div class="flex items-center justify-between text-xs text-gray-500">
+            <span class="bg-gray-100 px-3 py-1 rounded-full font-medium">{{ post.category }}</span>
+            <span>{{ post.date }}</span>
+          </div>
+
+          <!-- Title -->
+          <h2 class="text-lg font-bold leading-snug line-clamp-2">{{ post.title }}</h2>
+
+          <!-- Excerpt -->
+          <p class="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3">{{ post.excerpt }}</p>
+
+          <!-- Footer -->
+          <div class="flex items-center justify-between mt-2">
+            <span class="text-xs text-gray-400">{{ post.readTime }}</span>
+            <button
+              type="button"
+              class="text-sm font-semibold text-black hover:underline cursor-pointer"
+            >Read More →</button>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>
+

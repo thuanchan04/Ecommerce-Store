@@ -1,35 +1,41 @@
-import { Component, inject } from '@angular/core';
-import { InputField, InputFieldType } from "../../../shared/components/input-field/input-field";
-import { Button } from "../../../shared/components/button/button";
-import { Logo, LogoTypes } from "../../../shared/components/logo/logo";
-import { Router } from '@angular/router';
+import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink, Router } from '@angular/router';
+import { Logo, LogoTypes } from "../../../shared/components/logo/logo";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputField, Button, Logo, FormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FormsModule, RouterLink, Logo],
   templateUrl: './login.html',
 })
 export class Login {
-  InputFieldType = InputFieldType;
   LogoTypes = LogoTypes;
 
-  username = '';
+  email = '';
   password = '';
-  errorMessage = '';
+  rememberMe = false;
+  showPassword = signal(false);
+  errorMessage = signal('');
 
-  router = inject(Router);
+  private router = inject(Router);
 
-  onLogin() {
-    if (this.username === 'admin' && this.password === '123') {
+  onLogin(): void {
+    if (!this.email || !this.password) {
+      this.errorMessage.set('Please fill in all fields.');
+      return;
+    }
+    // Demo auth: accept any non-empty credentials
+    if (this.email && this.password.length >= 4) {
       this.router.navigate(['/home']);
     } else {
-      this.errorMessage = 'Sai username hoặc password!';
+      this.errorMessage.set('Password must be at least 4 characters.');
     }
   }
 
-  goRegister() {
-    this.router.navigate(['/register']);
+  togglePasswordVisibility(): void {
+    this.showPassword.update(v => !v);
   }
-} 
+}
+ 

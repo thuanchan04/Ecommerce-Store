@@ -1,57 +1,38 @@
-import { Component, Input } from '@angular/core';
-import { MOCK_REVIEWS } from './mock_review';
+import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
+import { ReviewService } from '../../../core/service/review.service';
 import { Icon } from "../icon/icon";
 import { Icons } from '../icon/icon.model';
 
 @Component({
   selector: 'app-review',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [Icon],
   templateUrl: './review.html'
 })
 export class Review {
-  @Input() stars = MOCK_REVIEWS.stars;
+  private reviewService = inject(ReviewService);
 
   Icons = Icons;
 
-  AVG_STAR = (
-    Object.entries(this.stars).reduce((acc, [star, count]) => acc + Number(star) * count, 0) /
-    Object.values(this.stars).reduce((acc, count) => acc + count, 0)
-  ).toFixed(1);
+  readonly avg = computed(() => this.reviewService.getAverageRating());
+  readonly total = computed(() => this.reviewService.getTotalReviews());
+  readonly stars = computed(() => this.reviewService.getStars());
 
-  avgStarNumber = Number(this.AVG_STAR);
+  readonly avgDisplay = computed(() => this.avg().toFixed(1));
 
-  TOTAL_REVIEWS = Object.values(this.stars).reduce((acc, count) => acc + count, 0);
+  // Returns array of 5 fill-percents: 100=full, 50=half, 0=empty
+  readonly starFills = computed<number[]>(() => {
+    const avg = this.avg();
+    return [1, 2, 3, 4, 5].map(i => {
+      const diff = avg - (i - 1);
+      if (diff >= 1) return 100;
+      if (diff <= 0) return 0;
+      return Math.round(diff * 100);
+    });
+  });
 
-  get fullStars(): number[] {
-    return Array(Math.floor(this.avgStarNumber)).fill(0);
-  }
-
-  get hasPartialStar(): boolean {
-    return this.avgStarNumber % 1 !== 0;
-  }
-
-  get partialFillPercent(): number {
-    return Math.round((this.avgStarNumber % 1) * 100); // ví dụ 0.3 -> 30
-  }
-
-  get emptyStars(): number[] {
-    const total = 5;
-    const used = Math.ceil(this.avgStarNumber);
-    return Array(total - used).fill(0);
-  }
-
-  getQuantity(star: number): string {
-    const count = MOCK_REVIEWS.stars[star] || 0;
-    return `${count}`;
-  }
-
-  getLinePercent(star: number): number {
-    const count = MOCK_REVIEWS.stars[star] || 0;
-    return Math.round((count / this.TOTAL_REVIEWS) * 100);
-  }
-
-  getLable(star: number): string {
+  getLabel(star: number): string {
     switch (star) {
       case 1: return 'Poor';
       case 2: return 'Below Average';
@@ -60,5 +41,13 @@ export class Review {
       case 5: return 'Excellent';
       default: return '';
     }
+  }
+
+  getQuantity(star: number): number {
+    return this.stars()[star] ?? 0;
+  }
+
+  getLinePercent(star: number): number {
+    return this.reviewService.getLinePercent(star);
   }
 }

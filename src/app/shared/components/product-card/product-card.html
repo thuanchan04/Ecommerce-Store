@@ -1,27 +1,63 @@
 <div
-  class="border border-gray-100 shadow-md bg-gray-100 rounded-md p-4 h-full relative flex flex-col justify-between items-center"
+  class="border border-gray-100 shadow-md bg-gray-100 rounded-md p-4 h-full relative flex flex-col justify-between items-center cursor-pointer"
+  role="button"
+  tabindex="0"
+  (click)="goToDetails()"
+  (keydown.enter)="goToDetails()"
 >
-  @if (isFavorite) {
+  @if (isFavorite()) {
     <app-icon
       [icon]="Icons.LOVE"
-      class="absolute top-0 right-0"
-      (click)="toggleFavorite()"
+      class="absolute top-2 right-2"
+      (click)="$event.stopPropagation(); toggleFavorite()"
     ></app-icon>
   } @else {
     <app-icon
       [icon]="Icons.LIKE"
-      class="absolute top-0 right-0 hover:text-gray-500 cursor-pointer"
-      (click)="toggleFavorite()"
+      class="absolute top-2 right-2 hover:text-gray-500 cursor-pointer"
+      (click)="$event.stopPropagation(); toggleFavorite()"
     ></app-icon>
   }
-  <app-img-products 
+  <app-img-products
     class="p-4"
-    [ImgProductsType]="productImage"
+    [ImgProductsType]="productImage()"
   ></app-img-products>
-  <p class="text-center whitespace-pre-line">{{productName}}</p>
-  <p class="text-center font-semibold text-2xl">${{price}} </p>
-  <app-button 
-    class="p-4"
-    label="Buy Now" variant="fill" size="S"
-  ></app-button>
+  <p class="text-center whitespace-pre-line text-sm">{{productName()}}</p>
+  <p class="text-center font-semibold text-2xl">${{price()}}</p>
+  <div class="flex gap-2 p-2 w-full">
+    <app-button
+      class="flex-1"
+      label="Buy Now" variant="fill" size="S"
+      (click)="buyNow($event)"
+    ></app-button>
+
+    @if (showControls()) {
+      <!-- Quantity controls: - qty + -->
+      <div class="flex items-center border border-gray-300 rounded-md overflow-hidden" (click)="$event.stopPropagation()">
+        <button
+          type="button"
+          class="w-8 h-10 flex items-center justify-center hover:bg-gray-200 transition-colors font-bold text-lg cursor-pointer"
+          (click)="decrement($event)"
+          aria-label="Decrease quantity"
+        >−</button>
+        <span class="w-8 text-center text-sm font-semibold select-none">{{ quantity() }}</span>
+        <button
+          type="button"
+          class="w-8 h-10 flex items-center justify-center hover:bg-gray-200 transition-colors font-bold text-lg cursor-pointer"
+          (click)="increment($event)"
+          aria-label="Increase quantity"
+        >+</button>
+      </div>
+    } @else {
+      <!-- Initial PLUS icon -->
+      <button
+        type="button"
+        class="w-10 h-10 flex items-center justify-center  hover:bg-gray-200 transition-colors cursor-pointer"
+        (click)="startAdding($event)"
+        aria-label="Add to cart"
+      >
+        <app-icon [icon]="Icons.PLUS"></app-icon>
+      </button>
+    }
+  </div>
 </div>

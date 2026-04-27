@@ -1,8 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, computed, signal, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderTop } from "../../../shared/components/header-top/header-top";
 import { ImgProducts, ImgProductsTypes } from "../../../shared/components/img-products/img-products";
-import { Icon } from "../../../shared/components/icon/icon";
-import { Icons } from '../../../shared/components/icon/icon.model';
 import { ProductCard } from "../../../shared/components/product-card/product-card";
 import { Button } from "../../../shared/components/button/button";
 import { Footer } from "../../../shared/components/footer/footer";
@@ -10,52 +8,63 @@ import { CategoryCard } from "../../../shared/components/category-card/category-
 import { FeaturedCard } from "../../../shared/components/featured-card/featured-card";
 import { CATEGORIES } from '../../../data/category.data';
 import { FEATURED_BANNERS } from '../../../data/featured.data';
-import { Product } from '../../../data/product.data';
 import { ProductService } from '../../../core/service/product.service';
 import { Router } from '@angular/router';
 
-
+type HomeTab = 'new-arrivals' | 'bestsellers' | 'featured';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [ HeaderTop, ImgProducts, Icon, ProductCard, Button, Footer, CategoryCard, FeaturedCard ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ HeaderTop, ImgProducts, ProductCard, Button, Footer, CategoryCard, FeaturedCard ],
   templateUrl: './home-page.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
   categories = CATEGORIES;
   featuredProducts = FEATURED_BANNERS;
 
-  products: Product[] = [];
-  productDiscount: Product[] = [];
+  activeTab = signal<HomeTab>('new-arrivals');
 
   ImgProductsTypes = ImgProductsTypes;
-  Icons = Icons;
 
   private productService = inject(ProductService);
   private router = inject(Router);
 
-  ngOnInit(): void {
-    this.loadData();
+  /** Reactive: auto-updates when ProductService signal changes */
+  private readonly allNonDiscount = computed(() => this.productService.getNonDiscount());
+  readonly productDiscount = computed(() => this.productService.getDiscount().slice(0, 4));
+
+  readonly tabProducts = computed(() => {
+    const tab = this.activeTab();
+    const all = this.allNonDiscount();
+    if (tab === 'new-arrivals') {
+      return [...all]
+        .sort((a, b) => (b.createdAt ?? '').localeCompare(a.createdAt ?? ''))
+        .slice(0, 8);
+    }
+    if (tab === 'bestsellers') {
+      return [...all]
+        .sort((a, b) => (b.salesCount ?? 0) - (a.salesCount ?? 0))
+        .slice(0, 8);
+    }
+    return all.filter(p => p.isFeatured).slice(0, 8);
+  });
+
+  setTab(tab: HomeTab): void {
+    this.activeTab.set(tab);
   }
 
-  loadData() {
-    this.products = this.productService.getNonDiscount();
-    this.productDiscount = this.productService.getDiscount();
-  }
-  onToggleFavorite(id: number) {
-    this.productService.toggleFavorite(id);
-    this.loadData(); // reload lại
-  }
-  goToCategory(categoryId: string) {
+  goToCategory(categoryId: string): void {
     this.router.navigate(['/products'], {
       queryParams: { category: categoryId }
     });
   }
-  onSearch(keyword: string) {
+
+  onSearch(keyword: string): void {
     this.router.navigate(['/products'], {
       queryParams: { search: keyword }
     });
   }
-  
 }
+

@@ -1,18 +1,40 @@
-<app-header-top></app-header-top>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
 <app-subnav></app-subnav>
-<div class="border border-white bg-gray-100">
-  <div class="border border-md border-white bg-white">
-    <h1 class="text-2xl font-semibold">Your wishlist has {{ favoriteCount }} items</h1>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-      @for (p of favoriteProducts; track p.name) {
-        <app-product-card 
-          [isFavorite]="p.isFavorite"
-          [productImage]="p.image"
-          [productName]="p.name"
-          [price]="p.price"
-        ></app-product-card>
-      }
+
+<div class="mt-20 min-h-screen bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 mb-8">
+      <h1 class="text-2xl font-bold">My Wishlist</h1>
+      <span class="bg-black text-white text-xs px-2.5 py-1 rounded-full font-medium">{{ count() }}</span>
     </div>
+
+    <!-- Empty State -->
+    @if (favorites().length === 0) {
+      <div class="flex flex-col items-center justify-center py-24 text-gray-400">
+        <span class="text-6xl mb-4">🤍</span>
+        <p class="text-xl font-medium text-gray-600">No favorite products yet</p>
+        <p class="text-sm mt-2">Browse our catalog and tap the heart icon on products you love</p>
+        <a routerLink="/products"
+          class="mt-6 bg-black text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors no-underline">
+          Browse Products
+        </a>
+      </div>
+    } @else {
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        @for (p of favorites(); track p.id) {
+          <app-product-card
+            [productImage]="p.image"
+            [productName]="p.name"
+            [price]="p.price"
+            [productId]="p.id">
+          </app-product-card>
+        }
+      </div>
+    }
+
   </div>
-  
 </div>
+
+<app-footer></app-footer>

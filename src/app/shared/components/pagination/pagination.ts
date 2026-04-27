@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Icons } from '../icon/icon.model';
 import { Icon } from "../icon/icon";
 
@@ -8,11 +8,18 @@ import { Icon } from "../icon/icon";
   imports: [Icon],
   templateUrl: './pagination.html'
 })
-export class Pagination {
+export class Pagination implements OnChanges {
   @Input() totalPages = 5;
   @Input() currentPage = 1;
+  @Output() pageChange = new EventEmitter<number>();
 
   Icons = Icons;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['currentPage']) {
+      this.currentPage = changes['currentPage'].currentValue;
+    }
+  }
 
   getPages(): (number | string)[] {
     const PAGES: (number | string)[] = [];
@@ -33,16 +40,16 @@ export class Pagination {
 
   goToPage(page: number | string) {
     if (typeof page === 'number' && page !== this.currentPage) {
-      this.currentPage = page;
+      this.pageChange.emit(page);
     }
   }
 
   prevPage() {
-    if (this.currentPage > 1) this.currentPage--;
+    if (this.currentPage > 1) this.pageChange.emit(this.currentPage - 1);
   }
 
   nextPage() {
-    if (this.currentPage < this.totalPages) this.currentPage++;
+    if (this.currentPage < this.totalPages) this.pageChange.emit(this.currentPage + 1);
   }
 
   getButtonClass(isActive: boolean): string {

@@ -1,3 +1,106 @@
-<app-header-top></app-header-top>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
 <app-subnav></app-subnav>
+
+<div class="mt-20">
+
+  <!-- Hero -->
+  <section class="bg-black text-white py-24 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">About E-Store</h1>
+    <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+      Your trusted destination for premium tech. We bring the best smartphones, laptops, audio gear, and accessories — at unbeatable prices.
+    </p>
+    <a routerLink="/products" class="inline-block mt-8 bg-white text-black font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors">
+      Shop Now
+    </a>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div class="flex flex-col gap-4">
+        <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white text-xl">🎯</div>
+        <h2 class="text-2xl font-bold">Our Mission</h2>
+        <p class="text-gray-600 leading-relaxed">
+          We make cutting-edge technology accessible to everyone. Our curated selection ensures you get only the best products, backed by outstanding customer service and lightning-fast delivery.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white text-xl">🔭</div>
+        <h2 class="text-2xl font-bold">Our Vision</h2>
+        <p class="text-gray-600 leading-relaxed">
+          To become the world's most customer-centric tech retailer — where people can find, discover, and buy anything they might want to power their digital lives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-gray-50 py-16 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold">50K+</p>
+        <p class="text-gray-500 mt-1 text-sm">Happy Customers</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold">1,200+</p>
+        <p class="text-gray-500 mt-1 text-sm">Products</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold">98%</p>
+        <p class="text-gray-500 mt-1 text-sm">Satisfaction Rate</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold">24/7</p>
+        <p class="text-gray-500 mt-1 text-sm">Customer Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-3">Meet the Team</h2>
+      <p class="text-gray-500 text-center mb-12">The people behind E-Store</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        @for (member of team; track member.name) {
+          <div class="flex flex-col items-center text-center gap-3">
+            <div class="w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-xl font-bold">
+              {{ member.avatar }}
+            </div>
+            <div>
+              <p class="font-semibold">{{ member.name }}</p>
+              <p class="text-gray-500 text-sm">{{ member.role }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-gray-50 py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Choose E-Store</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="font-bold text-lg mb-2">Fast Delivery</h3>
+          <p class="text-gray-500 text-sm">1-2 day delivery on most items with free shipping on orders over $50.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="text-4xl mb-4">🛡️</div>
+          <h3 class="font-bold text-lg mb-2">Guaranteed Authentic</h3>
+          <p class="text-gray-500 text-sm">Every product is 100% genuine, sourced directly from official manufacturers.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="text-4xl mb-4">💬</div>
+          <h3 class="font-bold text-lg mb-2">24/7 Support</h3>
+          <p class="text-gray-500 text-sm">Our expert team is available around the clock to help with any questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
 <app-footer></app-footer>

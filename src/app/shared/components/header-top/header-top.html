@@ -3,7 +3,7 @@
   [style.gridTemplateColumns]="gridTemplateColumns"
 >
   <div></div>
-  <app-logo [logoType]="LogoTypes.DARK"></app-logo>
+  <a routerLink="/home" class="cursor-pointer"><app-logo [logoType]="LogoTypes.DARK"></app-logo></a>
   <app-search-field (searchChange)="onSearch($event)" ></app-search-field>
 
   <app-menu-ht [items]="menuItems" [startColumn]="4"></app-menu-ht>

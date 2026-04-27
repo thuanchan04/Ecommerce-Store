@@ -1,3 +1,140 @@
-<app-header-top></app-header-top>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
 <app-subnav></app-subnav>
-<p>user-profile works!</p>
+
+<div class="mt-20 min-h-screen bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col gap-8">
+
+    <!-- User Info Card -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <!-- Avatar -->
+      <div class="w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-2xl font-bold shrink-0">
+        {{ user().avatar }}
+      </div>
+      <!-- Info -->
+      <div class="flex flex-col gap-1.5 flex-1">
+        <h1 class="text-2xl font-bold">{{ user().name }}</h1>
+        <p class="text-gray-500 text-sm">{{ user().email }}</p>
+        <p class="text-gray-500 text-sm">📞 {{ user().phone }}</p>
+        <p class="text-gray-500 text-sm">📍 {{ user().address }}</p>
+        <p class="text-gray-400 text-xs mt-1">Member since {{ user().joinDate }}</p>
+      </div>
+      <!-- Actions -->
+      <div class="flex gap-3 shrink-0">
+        <button
+          type="button"
+          class="bg-black text-white rounded-lg px-5 py-2 text-sm font-medium hover:bg-gray-800 transition-colors cursor-pointer"
+          (click)="openEdit()"
+        >Edit Profile</button>
+        <a
+          routerLink="/login"
+          class="border border-gray-300 text-gray-700 rounded-lg px-5 py-2 text-sm hover:bg-gray-50 transition-colors no-underline"
+        >Logout</a>
+      </div>
+    </div>
+
+    <!-- Order History -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <h2 class="text-xl font-bold mb-6">Order History</h2>
+
+      @if (orders.length > 0) {
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-100 text-left text-gray-500">
+                <th class="pb-3 font-medium">Order ID</th>
+                <th class="pb-3 font-medium">Date</th>
+                <th class="pb-3 font-medium">Items</th>
+                <th class="pb-3 font-medium">Total</th>
+                <th class="pb-3 font-medium">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (order of orders; track order.id) {
+                <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                  <td class="py-4 font-medium">{{ order.id }}</td>
+                  <td class="py-4 text-gray-500">{{ order.date }}</td>
+                  <td class="py-4 text-gray-600">{{ order.items }}</td>
+                  <td class="py-4 font-semibold">${{ order.total }}</td>
+                  <td class="py-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="statusClass(order.status)">
+                      {{ order.status }}
+                    </span>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <p class="text-gray-400 text-center py-8">No orders yet.</p>
+      }
+    </div>
+
+  </div>
+</div>
+
+<!-- Edit Profile Modal -->
+@if (showEditModal()) {
+  <div class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 px-4" role="dialog" aria-modal="true" aria-label="Edit profile">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md flex flex-col gap-6" (click)="$event.stopPropagation()">
+
+      <div class="flex justify-between items-center">
+        <h2 class="text-xl font-bold">Edit Profile</h2>
+        <button type="button" class="text-gray-400 hover:text-gray-700 cursor-pointer text-xl" (click)="cancelEdit()" aria-label="Close">✕</button>
+      </div>
+
+      <form (ngSubmit)="saveEdit()" class="flex flex-col gap-4">
+        <!-- Name -->
+        <div class="flex flex-col gap-1">
+          <label class="text-sm font-medium text-gray-700" for="edit-name">Full Name</label>
+          <input
+            id="edit-name"
+            type="text"
+            name="name"
+            [(ngModel)]="editForm.name"
+            required
+            class="border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+        <!-- Phone -->
+        <div class="flex flex-col gap-1">
+          <label class="text-sm font-medium text-gray-700" for="edit-phone">Phone Number</label>
+          <input
+            id="edit-phone"
+            type="tel"
+            name="phone"
+            [(ngModel)]="editForm.phone"
+            class="border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+        <!-- Address -->
+        <div class="flex flex-col gap-1">
+          <label class="text-sm font-medium text-gray-700" for="edit-address">Address</label>
+          <textarea
+            id="edit-address"
+            name="address"
+            [(ngModel)]="editForm.address"
+            rows="2"
+            class="border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black resize-none"
+          ></textarea>
+        </div>
+
+        <div class="flex gap-3 mt-2">
+          <button
+            type="button"
+            class="flex-1 border border-gray-300 rounded-lg py-2.5 text-sm hover:bg-gray-50 cursor-pointer"
+            (click)="cancelEdit()"
+          >Cancel</button>
+          <button
+            type="submit"
+            class="flex-1 bg-black text-white rounded-lg py-2.5 text-sm font-medium hover:bg-gray-800 cursor-pointer"
+          >Save Changes</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+}
+
+<app-footer></app-footer>
+

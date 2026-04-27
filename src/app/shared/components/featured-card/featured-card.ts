@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
 import { ImgProductsTypes, ImgProducts } from '../img-products/img-products';
 import { Button } from "../button/button";
 import { NgClass } from '@angular/common';
@@ -8,7 +8,7 @@ import { NgClass } from '@angular/common';
   imports: [Button, ImgProducts, NgClass],
   templateUrl: './featured-card.html'
 })
-export class FeaturedCard {
+export class FeaturedCard implements OnInit, OnDestroy {
   @Input() featureImage!: ImgProductsTypes;
   @Input() featureName!: string;
   @Input() featureDescription!: string;

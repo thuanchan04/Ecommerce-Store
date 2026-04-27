@@ -1,1 +1,278 @@
-<p>product-details works!</p>
+<app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
+
+<div class="mt-20 px-6 md:px-16 pb-16 min-h-screen">
+
+  <!-- Breadcrumb -->
+  <nav class="py-5 text-sm text-gray-500 flex flex-wrap items-center gap-1" aria-label="Breadcrumb">
+    <a routerLink="/home" class="hover:text-black">Home</a>
+    <span>›</span>
+    <a routerLink="/products" class="hover:text-black">Catalog</a>
+    @if (product()) {
+      <span>›</span>
+      <span class="text-black font-medium">{{ product()!.name }}</span>
+    }
+  </nav>
+
+  @if (product(); as p) {
+
+    <!-- ── TOP SECTION: Gallery + Info ── -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+
+      <!-- LEFT: Image Gallery -->
+      <div class="flex gap-4">
+
+        <!-- Thumbnails -->
+        <div class="flex flex-col gap-3">
+          @for (img of galleryImages(); track img; let i = $index) {
+            <button
+              type="button"
+              class="w-16 h-16 border rounded-xl p-1 transition-colors"
+              [class.border-black]="selectedImageIndex() === i"
+              [class.border-gray-200]="selectedImageIndex() !== i"
+              (click)="selectImage(i)"
+              [attr.aria-label]="'View image ' + (i + 1)"
+            >
+              <app-img-products [ImgProductsType]="img" class="w-full h-full object-contain"></app-img-products>
+            </button>
+          }
+        </div>
+
+        <!-- Main Image -->
+        <div class="flex-1 bg-gray-50 rounded-2xl p-8 flex items-center justify-center">
+          <app-img-products
+            [ImgProductsType]="galleryImages()[selectedImageIndex()]"
+            class="max-h-72 w-full object-contain">
+          </app-img-products>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Product Info -->
+      <div class="flex flex-col gap-5">
+
+        <!-- Name -->
+        <h1 class="text-3xl font-bold leading-snug">{{ p.name }}</h1>
+
+        <!-- Price -->
+        <div class="flex items-center gap-4">
+          <span class="text-3xl font-bold">${{ p.price }}</span>
+          @if (p.originalPrice) {
+            <span class="text-xl text-gray-400 line-through">${{ p.originalPrice }}</span>
+          }
+        </div>
+
+        <!-- Colors -->
+        @if (p.colors?.length) {
+          <div class="flex items-center gap-3 flex-wrap">
+            <span class="text-gray-600 text-sm">Select color :</span>
+            @for (color of p.colors!; track color) {
+              <button
+                type="button"
+                class="w-8 h-8 rounded-full border-2 transition-all"
+                [style.backgroundColor]="color"
+                [class.border-gray-800]="selectedColor() === color"
+                [class.border-transparent]="selectedColor() !== color"
+                (click)="selectColor(color)"
+                [attr.aria-label]="'Select color ' + color"
+              ></button>
+            }
+          </div>
+        }
+
+        <!-- Storage Options via Tabs -->
+        @if (storageTabs().length) {
+          <div class="flex flex-row gap-5 items-center flex-wrap">
+            <span class="text-gray-600 text-sm">Storage :</span>
+            <app-tabs
+              [tabs]="storageTabs()"
+              [selectedTabId]="selectedStorage()"
+              (selectedTabIdChange)="onStorageTabChange($event)">
+            </app-tabs>
+          </div>
+        }
+
+        <!-- Spec Cards -->
+        @if (p.specs) {
+          <div class="grid grid-cols-3 gap-3">
+            @if (p.specs.screenSize) {
+              <app-detail-card title="Screen size" [value]="p.specs.screenSize" [iconUrl]="Icons.SCREEN_SIZE"></app-detail-card>
+            }
+            @if (p.specs.cpu) {
+              <app-detail-card title="CPU :" [value]="p.specs.cpu" [iconUrl]="Icons.CPU"></app-detail-card>
+            }
+            @if (p.specs.cores) {
+              <app-detail-card title="Number of Cores" [value]="p.specs.cores.toString()" [iconUrl]="Icons.CORES"></app-detail-card>
+            }
+            @if (p.specs.mainCamera) {
+              <app-detail-card title="Main camera" [value]="p.specs.mainCamera" [iconUrl]="Icons.MAIN_CAMERA"></app-detail-card>
+            }
+            @if (p.specs.frontCamera) {
+              <app-detail-card title="Front camera" [value]="p.specs.frontCamera" [iconUrl]="Icons.FRONT_CAMERA"></app-detail-card>
+            }
+            @if (p.specs.battery) {
+              <app-detail-card title="Battery capacity" [value]="p.specs.battery" [iconUrl]="Icons.BATTERY"></app-detail-card>
+            }
+          </div>
+        }
+
+        <!-- Description snippet -->
+        @if (p.description) {
+          <p class="text-gray-600 text-sm leading-relaxed">
+            {{ showFullDescription() ? p.description : (p.description.length > 200 ? p.description.substring(0, 200) + '...' : p.description) }}
+            @if (p.description.length > 200) {
+              <button type="button" class="text-gray-900 underline ml-1 text-xs" (click)="toggleDescription()">
+                {{ showFullDescription() ? 'less...' : 'more...' }}
+              </button>
+            }
+          </p>
+        }
+
+        <!-- Action Buttons -->
+        <div class="flex gap-4 mt-2">
+          <app-button
+            [label]="isFavorite() ? 'In Wishlist ❤️' : 'Add to Wishlist'"
+            [variant]="isFavorite() ? 'fill' : 'black'"
+            size="M"
+            (click)="toggleWishlist()">
+          </app-button>
+          <app-button
+            [label]="isAddedToCart() ? 'In Cart' : 'Add to Cart'"
+            [variant]="isAddedToCart() ? 'white' : 'fill'"
+            size="M"
+            (click)="toggleCart()">
+          </app-button>
+        </div>
+
+        <!-- Delivery Info -->
+        <div class="flex gap-8 mt-2 flex-wrap">
+          <div class="flex flex-col items-center gap-1 text-center">
+            <app-icon [icon]="Icons.DELIVERY"></app-icon>
+            <span class="text-xs font-semibold">Free Delivery</span>
+            <span class="text-xs text-gray-500">1-2 day</span>
+          </div>
+          <div class="flex flex-col items-center gap-1 text-center">
+            <app-icon [icon]="Icons.STOCK"></app-icon>
+            <span class="text-xs font-semibold">In Stock</span>
+            <span class="text-xs text-gray-500">Today</span>
+          </div>
+          <div class="flex flex-col items-center gap-1 text-center">
+            <app-icon [icon]="Icons.GUARANTEED"></app-icon>
+            <span class="text-xs font-semibold">Guaranteed</span>
+            <span class="text-xs text-gray-500">1 year</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── DETAILS SECTION ── -->
+    @if (p.specs) {
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-3">Details</h2>
+        @if (p.description) {
+          <p class="text-gray-500 text-sm mb-6 leading-relaxed">{{ p.description }}</p>
+        }
+
+        <!-- Screen -->
+        @if (p.specs.screenSize || p.specs.screenResolution || p.specs.screenType) {
+          <h3 class="font-bold text-lg mb-2">Screen</h3>
+          <div class="flex flex-col mb-4">
+            @if (p.specs.screenSize) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">Screen diagonal</span><span>{{ p.specs.screenSize }}</span>
+              </div>
+            }
+            @if (p.specs.screenResolution) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">The screen resolution</span><span>{{ p.specs.screenResolution }}</span>
+              </div>
+            }
+            @if (p.specs.screenRefreshRate) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">The screen refresh rate</span><span>{{ p.specs.screenRefreshRate }}</span>
+              </div>
+            }
+            @if (p.specs.pixelDensity) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">The pixel density</span><span>{{ p.specs.pixelDensity }}</span>
+              </div>
+            }
+            @if (p.specs.screenType) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">Screen type</span><span>{{ p.specs.screenType }}</span>
+              </div>
+            }
+            @if (p.specs.screenAdditional?.length) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">Additionally</span>
+                <div class="text-right">
+                  @for (item of p.specs.screenAdditional!; track item) {
+                    <div>{{ item }}</div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        }
+
+        <!-- CPU -->
+        @if (p.specs.cpu || p.specs.cores) {
+          <h3 class="font-bold text-lg mb-2">CPU</h3>
+          <div class="flex flex-col mb-4">
+            @if (p.specs.cpu) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">CPU</span><span>{{ p.specs.cpu }}</span>
+              </div>
+            }
+            @if (p.specs.cores) {
+              <div class="flex justify-between py-3 border-b border-gray-100">
+                <span class="text-gray-500">Number of cores</span><span>{{ p.specs.cores }}</span>
+              </div>
+            }
+          </div>
+        }
+
+        <!-- View More -->
+        <div class="flex justify-center mt-6">
+          <app-button label="View More" variant="black" size="M" [icon]="true"></app-button>
+        </div>
+      </div>
+    }
+
+    <!-- ── REVIEWS ── -->
+    <div class="mb-10 max-w-4xl mx-auto border border-gray-100 shadow-sm rounded-2xl py-6">
+      <app-review></app-review>
+      <div class="mt-4">
+        <app-comment></app-comment>
+      </div>
+      <div class="flex justify-center mt-6">
+        <app-button label="View More" variant="black" size="M" [icon]="true"></app-button>
+      </div>
+    </div>
+
+    <!-- ── RELATED PRODUCTS ── -->
+    @if (relatedProducts().length) {
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold mb-6">Related Products</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          @for (rp of relatedProducts(); track rp.id) {
+            <app-product-card
+              [productName]="rp.name"
+              [productImage]="rp.image"
+              [price]="rp.price"
+              [productId]="rp.id">
+            </app-product-card>
+          }
+        </div>
+      </div>
+    }
+
+  } @else {
+    <div class="flex items-center justify-center py-40">
+      <p class="text-gray-400 text-lg">Product not found.</p>
+    </div>
+  }
+
+</div>
+
+<app-footer></app-footer>

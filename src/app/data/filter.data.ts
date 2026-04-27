@@ -85,6 +85,18 @@ export const FILTER_DATA: FilterGroup[] = [
     { label: '48 - 108 MP', value: '48-108' },
     { label: '108 MP+', value: '108+' }
   ]
+},
+{
+  id: 'rating',
+  title: 'By Rating',
+  type: 'checkbox',
+  options: [
+    { label: '5 Stars', value: '5' },
+    { label: '4+ Stars', value: '4' },
+    { label: '3+ Stars', value: '3' },
+    { label: '2+ Stars', value: '2' },
+    { label: '1+ Stars', value: '1' }
+  ]
 }
 
 ];
