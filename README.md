@@ -1,59 +1,56 @@
-# EStore
+# 🛍️ EStore - Modern Angular E-Commerce
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+[![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.io/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-## Development server
+A modern, fully responsive e-commerce web application built with **Angular 20** and **TailwindCSS**. Features product browsing, shopping cart, user authentication, wishlist, and a complete 3-step checkout process.
 
-To start a local development server, run:
+**Live Demo**: [View Demo](LINK) 
 
-```bash
-ng serve
-```
+**Figma Design**: [View on Figma](https://www.figma.com/design/5upvOCYl6OSC9hWggYbka2/E-Store---Mobile-web--Community-?node-id=0-1&t=0iseTQUdZBbO48eE-0) 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📸 Screenshots
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Home Page | Products Page | Product Details |
+|-----------|---------------|-----------------|
+| ![Home](./screenshots/home-page.png) | ![Products](./screenshots/products-page.png) | ![Details](./screenshots/product-details.png) |
 
-```bash
-ng generate component component-name
-```
+| Shopping Cart | Checkout | User Profile |
+|---------------|----------|--------------|
+| ![Cart](./screenshots/shopping-cart.png) | ![Checkout](./screenshots/checkout-step1.png) | ![Profile](./screenshots/profile.png) |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+> ** Screenshots folder**: Create `screenshots/` in project root and add images with names above.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🛠️ Tech Stack
 
-To build the project run:
+| Category | Technology |
+|----------|------------|
+| **Frontend Framework** | Angular 20 (Standalone Components) |
+| **Styling** | TailwindCSS v3+ |
+| **State Management** | Angular Signals (`signal`, `computed`, `effect`) |
+| **Change Detection** | OnPush Strategy |
+| **Language** | TypeScript 5.x |
+| **Linting** | ESLint + Angular ESLint |
+| **Persistence** | LocalStorage |
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## 🚀 Quick Start
 
 ```bash
-ng e2e
-```
+# 1. Clone the repository
+git clone https://github.com/your-username/e-store.git
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+# 2. Navigate to project
+cd e-store
 
-## Additional Resources
+# 3. Install dependencies
+npm install
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# 4. Run development server
+ng serve -o

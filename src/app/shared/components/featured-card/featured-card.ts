@@ -2,10 +2,11 @@ import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
 import { ImgProductsTypes, ImgProducts } from '../img-products/img-products';
 import { Button } from "../button/button";
 import { NgClass } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-featured-card',
-  imports: [Button, ImgProducts, NgClass],
+  imports: [Button, ImgProducts, NgClass, RouterLink],
   templateUrl: './featured-card.html'
 })
 export class FeaturedCard implements OnInit, OnDestroy {

@@ -1,7 +1,8 @@
 <app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
 
-<div class="mt-20 min-h-screen bg-gray-50 pb-16">
-  <div class="max-w-5xl mx-auto px-6 py-10">
+<!-- mobile: px-4 | tablet+desktop: max-w-5xl centered -->
+<div class="mt-20 min-h-screen bg-gray-50 pb-12 md:pb-16">
+  <div class="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-10">
 
     <!-- ── STEP INDICATOR ── -->
     <div class="flex items-center mb-10">
@@ -338,7 +339,7 @@
 <!-- Add Address Modal -->
 @if (showAddressForm()) {
   <div class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 px-4" role="dialog" aria-modal="true" aria-label="Add new address">
-    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md flex flex-col gap-6" (click)="$event.stopPropagation()">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md flex flex-col gap-6" tabindex="-1" role="document" (click)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
 
       <div class="flex justify-between items-center">
         <h2 class="text-xl font-bold">Add New Address</h2>

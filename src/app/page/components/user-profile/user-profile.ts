@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { HeaderTop } from "../../../shared/components/header-top/header-top";
-import { Subnav } from "../../../shared/components/subnav/subnav";
 import { Footer } from "../../../shared/components/footer/footer";
 
 interface Order {
@@ -26,7 +25,7 @@ interface UserInfo {
   selector: 'app-user-profile',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HeaderTop, Subnav, Footer, RouterLink, FormsModule],
+  imports: [HeaderTop, Footer, RouterLink, FormsModule],
   templateUrl: './user-profile.html'
 })
 export class UserProfile {

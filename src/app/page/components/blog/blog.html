@@ -1,16 +1,16 @@
 
 <app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
-<app-subnav></app-subnav>
 
 <div class="mt-20 min-h-screen">
-  <!-- Hero -->
-  <div class="bg-gray-50 py-12 text-center">
-    <h1 class="text-4xl font-bold">Tech Blog</h1>
+  <!-- Hero: reduced vertical padding on mobile -->
+  <div class="bg-gray-50 py-8 md:py-12 text-center px-4">
+    <h1 class="text-3xl md:text-4xl font-bold">Tech Blog</h1>
     <p class="text-gray-500 mt-2">Expert reviews, guides, and the latest in tech</p>
   </div>
 
-  <!-- Posts grid -->
-  <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- Posts grid: 1 col(mobile) → 2 cols(tablet) → 3 cols(desktop) -->
+  <!-- iPad Mini(768px) needs 2 cols to avoid over-stretched cards -->
+  <div class="max-w-6xl mx-auto px-4 py-8 md:py-12 grid grid-cols-1 md:grid-cols-2 desktop:grid-cols-3 gap-6 md:gap-8">
     @for (post of posts; track post.id) {
       <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
         <!-- Image placeholder -->

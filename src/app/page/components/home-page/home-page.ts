@@ -9,7 +9,7 @@ import { FeaturedCard } from "../../../shared/components/featured-card/featured-
 import { CATEGORIES } from '../../../data/category.data';
 import { FEATURED_BANNERS } from '../../../data/featured.data';
 import { ProductService } from '../../../core/service/product.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 type HomeTab = 'new-arrivals' | 'bestsellers' | 'featured';
 
@@ -17,7 +17,7 @@ type HomeTab = 'new-arrivals' | 'bestsellers' | 'featured';
   selector: 'app-home-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ HeaderTop, ImgProducts, ProductCard, Button, Footer, CategoryCard, FeaturedCard ],
+  imports: [HeaderTop, ImgProducts, ProductCard, Button, Footer, CategoryCard, FeaturedCard, RouterLink],
   templateUrl: './home-page.html'
 })
 export class HomePage {

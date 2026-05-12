@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeaderTop } from '../../../shared/components/header-top/header-top';
 import { Footer } from "../../../shared/components/footer/footer";
-import { Subnav } from "../../../shared/components/subnav/subnav";
 
 interface TeamMember {
   name: string;
@@ -14,7 +13,7 @@ interface TeamMember {
   selector: 'app-about',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HeaderTop, Footer, Subnav, RouterLink],
+  imports: [HeaderTop, Footer, RouterLink],
   templateUrl: './about.html'
 })
 export class About {

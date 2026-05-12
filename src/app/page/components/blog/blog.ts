@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderTop } from "../../../shared/components/header-top/header-top";
-import { Subnav } from "../../../shared/components/subnav/subnav";
 import { Footer } from "../../../shared/components/footer/footer";
 
 interface BlogPost {
@@ -17,7 +16,7 @@ interface BlogPost {
   selector: 'app-blog',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HeaderTop, Subnav, Footer],
+  imports: [HeaderTop, Footer],
   templateUrl: './blog.html'
 })
 export class Blog {

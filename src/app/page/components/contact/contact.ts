@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeaderTop } from "../../../shared/components/header-top/header-top";
-import { Subnav } from "../../../shared/components/subnav/subnav";
 import { Footer } from "../../../shared/components/footer/footer";
 import { Icon } from "../../../shared/components/icon/icon";
 import { Icons } from '../../../shared/components/icon/icon.model';
@@ -16,7 +15,7 @@ interface ContactForm {
   selector: 'app-contact',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HeaderTop, Subnav, Footer, FormsModule, Icon],
+  imports: [HeaderTop, Footer, FormsModule, Icon],
   templateUrl: './contact.html'
 })
 export class Contact {

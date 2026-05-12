@@ -1,5 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
 
+/* =====================================================================
+   CUSTOM BREAKPOINTS  (Tailwind v4 CSS-first @theme)
+
+   ┌─────────────┬───────────┬─────────────────────────────────────────────────────────────────────────────┐
+   │ Prefix      │ Min-width │ Devices                                                                     │
+   ├─────────────┼───────────┼─────────────────────────────────────────────────────────────────────────────┤
+   │ (base)      │  < 768px  │ iPhone SE(375) · XR(414) · 12 Pro(390) · 14 Pro Max(430) · Pixel 7(412)    │
+   │             │           │ Galaxy S8+(360) · S20 Ultra(412) · A51/71(412) · Fold outer(332)            │
+   │             │           │ Xiaomi 13 Pro(393) · OnePlus 11(412)                                        │
+   ├─────────────┼───────────┼─────────────────────────────────────────────────────────────────────────────┤
+   │ fold:       │  ≥ 673px  │ Galaxy Z Fold 5 inner unfolded(673) · Surface Duo(540 — wider landscape)    │
+   ├─────────────┼───────────┼─────────────────────────────────────────────────────────────────────────────┤
+   │ md:         │  ≥ 768px  │ iPad Mini(768) · iPad Air(820) · Surface Pro 7(912) · Asus Zenbook(853)     │
+   │             │           │ iPad Pro(1024) · Nest Hub(1024) · Nest Hub Max(1280) · Desktop ≥1200px      │
+   ├─────────────┼───────────┼─────────────────────────────────────────────────────────────────────────────┤
+   │ desktop:    │ ≥ 1200px  │ Standard PC / laptop / large monitor                                        │
+   └─────────────┴───────────┴─────────────────────────────────────────────────────────────────────────────┘
+
+   BANNER2 RULE: All Banner2 layout classes use md: (≥768px).
+   This guarantees that every tablet AND every desktop renders the
+   exact same 4-col × 2-row grid. Only base (no prefix) styles differ
+   to produce a single-column stacked layout on mobile (<768px).
+   ===================================================================== */
+@theme {
+  /* Galaxy Z Fold 5 inner / Surface Duo landscape — between mobile and tablet */
+  --breakpoint-fold:    42.0625rem;  /* 673px */
+
+  /* Standard desktop threshold — above all tablet devices in the list */
+  --breakpoint-desktop: 75rem;       /* 1200px */
+}
+
+/* ── Global resets ────────────────────────────────────────────────── */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Responsive media — images/videos never exceed their container */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal scrollbar on every device */
+html { overflow-x: hidden; }

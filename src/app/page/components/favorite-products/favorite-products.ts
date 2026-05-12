@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeaderTop } from "../../../shared/components/header-top/header-top";
-import { Subnav } from "../../../shared/components/subnav/subnav";
 import { Footer } from "../../../shared/components/footer/footer";
 import { ProductCard } from "../../../shared/components/product-card/product-card";
 import { ProductService } from '../../../core/service/product.service';
@@ -10,7 +9,7 @@ import { ProductService } from '../../../core/service/product.service';
   selector: 'app-favorite-products',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HeaderTop, Subnav, Footer, ProductCard, RouterLink],
+  imports: [HeaderTop, Footer, ProductCard, RouterLink],
   templateUrl: './favorite-products.html'
 })
 export class FavoriteProducts {

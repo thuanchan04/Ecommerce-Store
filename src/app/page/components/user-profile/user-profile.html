@@ -1,5 +1,4 @@
 <app-header-top class="fixed top-0 left-0 z-50 w-full"></app-header-top>
-<app-subnav></app-subnav>
 
 <div class="mt-20 min-h-screen bg-gray-50">
   <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col gap-8">
@@ -24,7 +23,10 @@
           type="button"
           class="bg-black text-white rounded-lg px-5 py-2 text-sm font-medium hover:bg-gray-800 transition-colors cursor-pointer"
           (click)="openEdit()"
-        >Edit Profile</button>
+          (keyup.enter)="openEdit()"
+          (keyup.space)="openEdit()">
+          Edit Profile
+        </button>
         <a
           routerLink="/login"
           class="border border-gray-300 text-gray-700 rounded-lg px-5 py-2 text-sm hover:bg-gray-50 transition-colors no-underline"
@@ -33,54 +35,100 @@
     </div>
 
     <!-- Order History -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-      <h2 class="text-xl font-bold mb-6">Order History</h2>
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8">
+  <h2 class="text-xl font-bold mb-6">Order History</h2>
 
-      @if (orders.length > 0) {
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="border-b border-gray-100 text-left text-gray-500">
-                <th class="pb-3 font-medium">Order ID</th>
-                <th class="pb-3 font-medium">Date</th>
-                <th class="pb-3 font-medium">Items</th>
-                <th class="pb-3 font-medium">Total</th>
-                <th class="pb-3 font-medium">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (order of orders; track order.id) {
-                <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                  <td class="py-4 font-medium">{{ order.id }}</td>
-                  <td class="py-4 text-gray-500">{{ order.date }}</td>
-                  <td class="py-4 text-gray-600">{{ order.items }}</td>
-                  <td class="py-4 font-semibold">${{ order.total }}</td>
-                  <td class="py-4">
-                    <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="statusClass(order.status)">
-                      {{ order.status }}
-                    </span>
-                  </td>
-                </tr>
-              }
-            </tbody>
-          </table>
+  @if (orders.length > 0) {
+
+    <!-- MOBILE CARD -->
+    <div class="flex flex-col gap-4 md:hidden">
+      @for (order of orders; track order.id) {
+        <div class="border border-gray-200 rounded-xl p-4 shadow-sm">
+          
+          <div class="flex justify-between items-start gap-3 mb-3">
+            <div>
+              <p class="font-semibold text-base">{{ order.id }}</p>
+              <p class="text-sm text-gray-500 mt-1">{{ order.date }}</p>
+            </div>
+
+            <span
+              class="px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap"
+              [class]="statusClass(order.status)">
+              {{ order.status }}
+            </span>
+          </div>
+
+          <div class="space-y-2 text-sm">
+            <div>
+              <p class="text-gray-400">Items</p>
+              <p class="text-gray-700 leading-relaxed">{{ order.items }}</p>
+            </div>
+
+            <div>
+              <p class="text-gray-400">Total</p>
+              <p class="font-semibold text-lg">${{ order.total }}</p>
+            </div>
+          </div>
         </div>
-      } @else {
-        <p class="text-gray-400 text-center py-8">No orders yet.</p>
       }
     </div>
+
+    <!-- TABLET + DESKTOP -->
+    <div class="hidden md:block overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-100 text-left text-gray-500">
+            <th class="pb-4 font-medium px-2">Order ID</th>
+            <th class="pb-4 font-medium px-2">Date</th>
+            <th class="pb-4 font-medium px-2">Items</th>
+            <th class="pb-4 font-medium px-2">Total</th>
+            <th class="pb-4 font-medium px-2">Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (order of orders; track order.id) {
+            <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+              <td class="py-5 px-2 font-medium">{{ order.id }}</td>
+              <td class="py-5 px-2 text-gray-500">{{ order.date }}</td>
+              <td class="py-5 px-2 text-gray-600">{{ order.items }}</td>
+              <td class="py-5 px-2 font-semibold">${{ order.total }}</td>
+              <td class="py-5 px-2">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium"
+                  [class]="statusClass(order.status)">
+                  {{ order.status }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+  } @else {
+    <p class="text-gray-400 text-center py-8">No orders yet.</p>
+  }
+</div>
 
   </div>
 </div>
 
 <!-- Edit Profile Modal -->
 @if (showEditModal()) {
-  <div class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 px-4" role="dialog" aria-modal="true" aria-label="Edit profile">
-    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md flex flex-col gap-6" (click)="$event.stopPropagation()">
+  <div class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 px-4" role="dialog" aria-modal="true" aria-label="Edit profile" tabindex="-1">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md flex flex-col gap-6" (click)="$event.stopPropagation()" tabindex="0" (keyup.enter)="$event.stopPropagation()" (keyup.space)="$event.stopPropagation()">
 
       <div class="flex justify-between items-center">
         <h2 class="text-xl font-bold">Edit Profile</h2>
-        <button type="button" class="text-gray-400 hover:text-gray-700 cursor-pointer text-xl" (click)="cancelEdit()" aria-label="Close">✕</button>
+        <button 
+          type="button" 
+          class="text-gray-400 hover:text-gray-700 cursor-pointer text-xl" 
+          (click)="cancelEdit()"
+          (keyup.enter)="cancelEdit()"
+          (keyup.space)="cancelEdit()"
+          aria-label="Close"
+          tabindex="0">✕</button>
       </div>
 
       <form (ngSubmit)="saveEdit()" class="flex flex-col gap-4">
@@ -124,11 +172,15 @@
             type="button"
             class="flex-1 border border-gray-300 rounded-lg py-2.5 text-sm hover:bg-gray-50 cursor-pointer"
             (click)="cancelEdit()"
-          >Cancel</button>
+            (keyup.enter)="cancelEdit()"
+            (keyup.space)="cancelEdit()">
+            Cancel
+          </button>
           <button
             type="submit"
-            class="flex-1 bg-black text-white rounded-lg py-2.5 text-sm font-medium hover:bg-gray-800 cursor-pointer"
-          >Save Changes</button>
+            class="flex-1 bg-black text-white rounded-lg py-2.5 text-sm font-medium hover:bg-gray-800 cursor-pointer">
+            Save Changes
+          </button>
         </div>
       </form>
 
@@ -137,4 +189,3 @@
 }
 
 <app-footer></app-footer>
-
