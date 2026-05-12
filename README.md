@@ -12,21 +12,29 @@ A modern, fully responsive e-commerce web application built with **Angular 20** 
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-| Home Page | Products Page | Product Details |
+| Home Page Desktop | Products Page Desktop | Product Details Desktop |
 |-----------|---------------|-----------------|
 | ![Home](./screenshots/home-page.png) | ![Products](./screenshots/products-page.png) | ![Details](./screenshots/product-details.png) |
 
-| Shopping Cart | Checkout | User Profile |
+| Home Page Mobile | Products Page Mobile | Product Details Mobile |
+|-----------|---------------|-----------------|
+| ![Home](./screenshots/home-page-mobile.png) | ![Products](./screenshots/products-page-mobile.png) | ![Details](./screenshots/product-details-mobile.png) |
+
+| Shopping Cart Desktop | Checkout Desktop | User Profile Desktop |
 |---------------|----------|--------------|
 | ![Cart](./screenshots/shopping-cart.png) | ![Checkout](./screenshots/checkout-step1.png) | ![Profile](./screenshots/profile.png) |
+
+| Shopping Cart Mobile | Checkout Mobile | User Profile Mobile |
+|---------------|----------|--------------|
+| ![Cart](./screenshots/shopping-cart-mobile.png) | ![Checkout](./screenshots/checkout-step1-mobile.png) | ![Profile](./screenshots/profile-mobile.png) |
 
 > ** Screenshots folder**: Create `screenshots/` in project root and add images with names above.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |----------|------------|
@@ -40,7 +48,7 @@ A modern, fully responsive e-commerce web application built with **Angular 20** 
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # 1. Clone the repository
