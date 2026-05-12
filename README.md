@@ -30,7 +30,6 @@ A modern, fully responsive e-commerce web application built with **Angular 20** 
 |---------------|----------|--------------|
 | ![Cart](./screenshots/shopping-cart-mobile.png) | ![Checkout](./screenshots/checkout-step1-mobile.png) | ![Profile](./screenshots/profile-mobile.png) |
 
-> ** Screenshots folder**: Create `screenshots/` in project root and add images with names above.
 
 ---
 
