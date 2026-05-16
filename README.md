@@ -6,7 +6,7 @@
 
 A modern, fully responsive e-commerce web application built with **Angular 20** and **TailwindCSS**. Features product browsing, shopping cart, user authentication, wishlist, and a complete 3-step checkout process.
 
-**Live Demo**: [View Demo](LINK) 
+**Live Demo**: [View Demo](https://do5ngpzjwzq9d.cloudfront.net/) 
 
 **Figma Design**: [View on Figma](https://www.figma.com/design/5upvOCYl6OSC9hWggYbka2/E-Store---Mobile-web--Community-?node-id=0-1&t=0iseTQUdZBbO48eE-0) 
 
